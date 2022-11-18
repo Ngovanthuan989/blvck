@@ -1,0 +1,87 @@
+.home{
+  &__title{
+    font-family: $font-Montserrat-Regular;
+    @extend .fz-32;
+    color: rgb(33,33,33);
+    line-height: (38/32);
+  }
+  &__blog{
+    &__grid{
+      &::-webkit-scrollbar{
+        display: none;
+      }
+      flex-wrap: nowrap;
+      @include media-breakpoint-up('m'){
+        flex-wrap: wrap;
+      }
+    }
+    &__width{
+      min-width: 364px;
+      @include media-breakpoint-up('m'){
+        width: 100%;
+      }
+    }
+    &__box{
+      padding: 25px;
+    }
+    &__title{
+      @extend .fz-26;
+      line-height: (33/26);
+      font-family: $font-Montserrat-Regular;
+      margin: 0;
+      a{
+        color: rgb(33,33,33);
+        &:hover{
+          color: rgb(167,167,167) !important;
+        }
+      }
+    }
+    &__desc{
+      @extend .fz-14;
+      font-family: $font-AvenirNextLTPro-Regular;
+      color: rgb(33,33,33);
+    }
+  }
+  &__slideshow{
+    &__txt{
+      @extend .fz-16;
+      font-family: $font-AvenirNextLTPro-Medium;
+      color: #ffffff;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    &__title{
+      color: #ffffff;
+      @extend .fz-90;
+      margin: 0;
+      font-family: $font-Montserrat-Regular;
+      @include media-breakpoint-down('xs'){
+        font-size: 44px !important;
+      }
+    }
+    &__btn{
+      background: #000 !important;
+      @include media-breakpoint-up('m'){
+        min-width: 260px;
+      }
+      line-height: 48px;
+      letter-spacing: 1.44px;
+      color: #ffffff !important;
+      @extend .fz-12;
+      &:hover{
+        color: #868686 !important;
+      }
+    }
+    $max:60;
+    $min:35;
+    &__item-#{$max}-#{$min}{
+      &:nth-child(n+2){
+        margin-top: #{$min}px;
+        @include media-breakpoint-up('m'){
+          margin-top: #{$max}px;
+        }
+      }
+    }
+  }
+}

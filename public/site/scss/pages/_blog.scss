@@ -1,0 +1,33 @@
+.blog{
+  &__section1{
+    @include media-breakpoint-up('m'){
+
+    }
+  }
+  &__title{
+    color: rgb(33, 33, 33);
+    @extend .fz-45;
+    font-family: $font-Montserrat-Regular;
+    line-height: (54/45);
+  }
+  &__time{
+    @extend .fz-12;
+    line-height: (16/12);
+    color: rgb(100,100,100);
+    font-family: $font-Montserrat-Regular;
+  }
+  &__tag{
+    color: #ffffff;
+    @extend .fz-12;
+    border: 1px solid #ffffff;
+    letter-spacing: 1.44px;
+    padding: 3px 8px;
+    line-height: 1;
+  }
+  &__link{
+    color: rgb(33, 33, 33);
+    @extend .fz-12;
+    letter-spacing: 1.44px;
+    font-family: $font-AvenirNextLTPro-Medium;
+  }
+}

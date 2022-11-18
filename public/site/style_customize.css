@@ -1,0 +1,147 @@
+.uk-overlay-primary {
+    background: rgb(255 255 255 / 70%);
+    color: #000;
+}
+
+h1.uk-h1.blog__title {
+    color: #000;
+}
+
+
+
+h4.uk-h4.home__blog__title {
+    color: #000;
+
+}
+
+.main-content{
+    padding-top: 30px;
+}
+
+h2.theme {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+#Login.account {
+    padding: 0 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+#Login.account--login {
+    text-align: center;
+}
+
+#Login.account .col {
+    display: inline-block;
+    width: 45%;
+}
+#Login .animates, .is-hidden {
+    transition: all .8s cubic-bezier(.215,.61,.355,1);
+}
+
+#Login .animates {
+    visibility: visible;
+    opacity: 1;
+}
+
+#Login .h2.theme {
+    text-align: center;
+    position: relative;
+    z-index: 11;
+}
+
+#Login form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: initial;
+}
+
+#Login .form-field, .form-item {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    line-height: 1;
+    text-align: left;
+    position: relative;
+}
+
+#Login.account .form-field {
+    max-width: none;
+}
+
+#Login .form-field label {
+    background: var(---color-bg);
+    color: var(---color-text);
+    font-size: calc(.75rem*var(---font-adjust-body));
+    font-weight: var(---font-weight-body-bold);
+    left: 9px;
+    opacity: 0;
+    padding: 0 0.5em;
+    position: absolute;
+    top: 2em;
+    transition: .25s ease-out;
+    transition-property: color,background,border;
+    z-index: -1;
+}
+#Login .form-field{
+    display: block;
+    width: 100%;
+}
+
+#Login input[type=submit] {
+    cursor: pointer;
+}
+
+#Login .btn+.text-link{
+    margin-left: 15px;
+}
+
+#Login .text-link {
+    border-radius: 0;
+    background: none;
+    text-decoration: none!important;
+    cursor: pointer;
+    color: #000;
+    width: 100%;
+    text-align: right;
+    border: none;
+    padding: 20px 0;
+    transition: all .25s ease-in;
+}
+
+#Login .is-hidden {
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+#Login .account form {
+    padding: 20px 0;
+}
+
+#Login input {
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+}
+#Login .button_submit{
+    background: #000 !important;
+    line-height: 48px;
+    letter-spacing: 1.44px;
+    color: #ffffff !important;
+}
+
+#Login p {
+    color: #000;
+}
+#Login .text-link a  {
+    color: #000;
+}
+
+

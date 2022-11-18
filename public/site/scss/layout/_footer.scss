@@ -1,0 +1,81 @@
+.footer{
+  background: #000;
+  $x:30px;
+  padding-top: #{$x};
+  padding-bottom: #{$x};
+  @include media-breakpoint-up('m'){
+    $x:70px;
+    padding-top: #{$x};
+    padding-bottom: #{$x};
+  }
+  &__label{
+    color: #ffffff;
+    font-family: $font-AvenirNextLTPro-Regular;
+    @extend .fz-16;
+  }
+  &__title{
+    @extend .fz-14;
+    color: #ffffff;
+    margin-bottom: 17px !important;
+    font-family: $font-Montserrat-Medium;
+  }
+  &__navList{
+    >li{
+      >a{
+        font-family: $font-AvenirNextLTPro-Regular;
+        @extend .fz-16;
+      }
+    }
+  }
+  &__moneySelect{
+    text-transform: inherit;
+    @extend .fz-10;
+    color: #ffffff;
+    padding: 0 15px;
+  }
+  &__accordion{
+    .uk-accordion-title{
+      @extend .footer__title;
+      margin-bottom: 0 !important;
+    }
+    .uk-accordion-content{
+      margin-top: 10px;
+    }
+    >li{
+      &:nth-child(n+2){
+        $x:12px;
+        position: relative;
+        margin-top: #{$x};
+        padding-top: #{$x};
+        &:before{
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: -15px;
+          border-top: 1px solid #999999;
+        }
+      }
+    }
+  }
+  $max:75;
+  $min:25;
+  &__item-#{$max}-#{$min}{
+    &:nth-child(n+2){
+      margin-top: #{$min}px;
+      @include media-breakpoint-up('m'){
+        margin-top: #{$max}px;
+      }
+    }
+  }
+  $max:100;
+  $min:20;
+  &__item-#{$max}-#{$min}{
+    &:nth-child(n+2){
+      margin-top: #{$min}px;
+      @include media-breakpoint-up('m'){
+        margin-top: #{$max}px;
+      }
+    }
+  }
+}
