@@ -22,8 +22,8 @@ use App\Mail\Mail;
 use App\Ultility\Ultility;
 use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
+use Session;
 use Illuminate\Support\Facades\Auth;
-use kcfinder\session;
 use Validator;
 
 class OrderController extends SiteController
@@ -84,6 +84,22 @@ class OrderController extends SiteController
         
         return $orderItemDetail;
 
+    }
+
+    public function updateOrder(Request $request){
+        session_start();
+        $orderItems = session('orderItems');
+        $productId = $request->id;
+        $quantity = $request->quantity;
+        if (!$orderItems){
+            return [];
+        }
+        $orderItemNew = $request->cart;
+
+        //xóa session cũ
+        Session::forget('orderItems');
+        //Thêm session mới lại
+        Session::put('orderItems', $orderItemNew);
     }
 
 
@@ -203,8 +219,6 @@ class OrderController extends SiteController
 
    public function checkout(Request $request){
        $orderItems = session('orderItems');
-       dd($orderItems);
-
        if (empty($orderItems)){
            return redirect('/');
        }
@@ -213,9 +227,11 @@ class OrderController extends SiteController
        if (!$orderItems){
            return [];
        }
+       $productItem = array();
 
        foreach ($orderItems as $orderItem) {
            $productIds[] = $orderItem['product_id'];
+           $productItem[$orderItem['product_id']] = $orderItem;
        }
 
        $orderItemDetail = Post::join('products', 'products.post_id', '=', 'posts.post_id')
@@ -229,17 +245,16 @@ class OrderController extends SiteController
            ->get();
 
        foreach ($orderItemDetail as $id => $orderItem ) {
-
-           $orderItemDetail[$id]->quantity = $orderItems[$id]['quantity'];
-           $orderItemDetail[$id]->size = $orderItems[$id]['size'] ;
-           foreach ($request->item as $slug => $item){
+           foreach ($orderItems as $item){
                 if ($orderItem['product_id'] == $item['product_id']){
-                    $orderItemDetail[$id]->quantity = $item['quantity'];
+                    $orderItem->quantity = $item['quantity'];
+                    $orderItem->size = $item['size'];
                 }
            }
        }
 
        $orderItems = $orderItemDetail;
+
        return view('site.order.checkout', compact('orderItems'));
    }
 
@@ -349,17 +364,20 @@ class OrderController extends SiteController
 
    public function cbOrder(Request $request){
        $orderItems = Order::getOrderItems();
-//       $request->session()->pull('orderItems');
+       $request->session()->pull('orderItems');
        $orderBanks = OrderBank::get();
+        if (!$orderItems){
+            return redirect('/');
+        }
 
        return view('site.order.payment', compact('orderItems', 'orderBanks'));
    }
 
-    public function review(Request $request){
-        $orderItems = Order::getOrderItems();
-        $request->session()->pull('orderItems');
+    public function review($id){
+        $order = new Order();
+        $order = $order->getOrder($id);
 
-        return view('site.order.review', compact('orderItems'));
+        return view('site.order.review', compact('order'));
     }
 
     private function minusPointUser(Request $request) {

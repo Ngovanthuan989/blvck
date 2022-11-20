@@ -11,7 +11,7 @@
                 @if( \App\Entity\Order::countOrder() > 0)
 
                 @foreach(\App\Entity\Order::getOrderItems() as $id => $item)
-                        <div class="cart__offcanvas__body__item">
+                        <div class="cart__offcanvas__body__item cart_item_head">
                             <div class="uk-grid-small uk-flex-middle" uk-grid>
                                 <div class="uk-width-auto">
                                     <div class="uk-cover-container">
@@ -27,27 +27,32 @@
                                                 <a href="">{{ isset($item['title']) ? $item['title'] : '' }}</a></h4>
                                         </div>
                                         <div class="uk-width-auto">
-                                            <a class="cart__offcanvas__body__trash" href="" uk-icon="icon: trash"></a>
+                                            <a href="javascript:void(0);" onclick="return removeItemCart(this)" class="cart__offcanvas__body__trash" href="" uk-icon="icon: trash"></a>
                                         </div>
                                     </div>
                                     <div class="cart__offcanvas__body__size">
                                         {{ isset($item['size']) ? $item['size'] : '' }}
+                                        <input type="hidden" name="size[]" class="size" value="{{ isset($item['size']) ? $item['size'] : '' }}" >
                                     </div>
-                                    <div class="item__10" uk-grid>
+                                    <div class="item__10 session-item-cart" uk-grid>
                                         <div class="uk-width-expand">
                                             <div class="cart__offcanvas__body__boxCount">
-                                                <a href="" class="uk-button uk-button-small uk-button-default"
-                                                   uk-icon="icon: minus; ratio: .6"></a>
-                                                <input type="text" class="uk-input uk-form-small uk-form-width-xsmall"
-                                                       value="1" placeholder="">
-                                                <a href="" class="uk-button uk-button-small uk-button-default"
-                                                   uk-icon="icon: plus; ratio: .6"></a>
+                                                <a href="javascript:void(0)" class="uk-button uk-button-small uk-button-default"
+                                                   uk-icon="icon: minus; ratio: .6" onclick="return minusQuantity(this);"></a>
+                                                <input type="text" class="uk-input uk-form-small uk-form-width-xsmall quantity" name="quantity[]"
+                                                       value="{{ isset($item['quantity']) ? $item['quantity'] : 1 }}" placeholder="">
+                                                <input type="hidden" name="price[]" class="price-input" value="{{ isset($item['price']) ? $item['price'] : '' }}">
+                                                <input type="hidden" name="productId[]" class="product-id" value="{{ isset($item['product_id']) ? $item['product_id'] : '' }}">
+                                                <a href="javascript:void(0)" class="uk-button uk-button-small uk-button-default"
+                                                   uk-icon="icon: plus; ratio: .6" onclick="return plusQuantity(this);"></a>
                                             </div>
                                         </div>
                                         <div class="uk-width-auto">
                                             <span class="cart__offcanvas__body__price cart__offcanvas__body__price--new">
-                                                <input type="hidden">
-                                                {{ isset($item['price']) ? $item['price'] : '' }}
+                                                <input type="hidden" name="total-price-item[]" class="total-price-item" value="{{ $item['price'] * $item['quantity'] }}">
+                                                <span class="price">
+                                                    {{ isset($item['price']) ? number_format($item['price'] * $item['quantity'] ) : '' }}
+                                                </span>
                                                 {{ isset($information['currency']) ? $information['currency'] : '₫' }}
                                             </span>
                                         </div>
@@ -65,6 +70,8 @@
                     </div>
                 @endif
             </div>
+
+
             <div class="cart__offcanvas__body__box2">
                 <div class="uk-text-center cart__offcanvas__body__box2__txt">
                     Customers who bought this item also bought
@@ -150,15 +157,101 @@
                 </div>
                 <div class="uk-width-auto">
                     <span class="cart__offcanvas__footer__txt">
-                        2.778.800.000  {{ isset($information['currency']) ? $information['currency'] : '₫' }}
+                        <input type="hidden" name="total-cart">
+                        <span id="total-cart">
+                        </span>
+                        {{ isset($information['currency']) ? $information['currency'] : '₫' }}
                     </span>
                 </div>
             </div>
             <div>
-                <button class="cart__offcanvas__footer__btn uk-button uk-button-secondary uk-width-1-1 uk-border-rounded"
-                        uk-icon="icon: lock"><span class="uk-text-middle uk-margin-small-left">Checkout</span></button>
+                <a href="{{ route('checkout', ['lang' => $languageCurrent]) }}" class="cart__offcanvas__footer__btn uk-button uk-button-secondary uk-width-1-1 uk-border-rounded"
+                        uk-icon="icon: lock"><span class="uk-text-middle uk-margin-small-left">Checkout</span></a>
             </div>
         </div>
     </div>
 </div>
 <!--/Cart-->
+
+<script>
+    $(document).ready(function(){
+        caculateTotalPrice();
+    })
+    function minusQuantity(e) {
+        let quantityInput = $(e).parent().find('.quantity');
+        let price = $(e).parent().find('.price-input').val();
+        let quantity = quantityInput.val();
+        if(quantity > 1){
+            quantity = parseInt(quantity) - 1;
+        }else{
+            quantity = parseInt(quantity);
+            return;
+        }
+        quantityInput.val(quantity)
+        updateOrder();
+        caculatePrice(e, quantity, price)
+    }
+
+    function plusQuantity(e) {
+        let quantityInput = $(e).parent().find('.quantity');
+        let price = $(e).parent().find('.price-input').val();
+        let quantity = quantityInput.val();
+        quantity = parseInt(quantity) + 1;
+        quantityInput.val(quantity)
+        updateOrder();
+
+        caculatePrice(e, quantity, price)
+    }
+
+    function caculatePrice(e, quantity, price) {
+        let priceOneItem = quantity * price;
+        let priceItem = $(e).closest('.session-item-cart').find('.price');
+        priceItem.html(numeral(priceOneItem).format('0,0'))
+
+        $(e).closest('.session-item-cart').find('.total-price-item').val(priceOneItem);
+        caculateTotalPrice();
+
+    }
+
+    function caculateTotalPrice() {
+        let sum = 0;
+        $('.total-price-item').each(function (index, value) {
+            let priceTotal = value.value;
+            sum = parseInt(sum) + parseInt(priceTotal);
+        });
+        $('input[name=total-cart]').val(sum);
+        $('#total-cart').html(numeral(sum).format('0,0'));
+    }
+
+    function updateOrder() {
+        let cart = [];
+        $('.cart_item_head').each(function (index, value) {
+            let newQuantiy = $(this).find('.quantity').val();
+            let productId = $(this).find('.product-id').val();
+            let size = $(this).find('.size').val();
+            let element = {};
+            element.product_id = productId;
+            element.quantity = newQuantiy;
+            element.size = size;
+            cart.push(element);
+        });
+        console.log(cart)
+        $.ajax({
+            url: "{{ route('update_order') }}",
+            method: "post",
+            data: {
+                cart: cart
+            }
+        }).done(function(result) {
+            console.log('oke')
+        });
+    }
+
+    function removeItemCart(e) {
+        let priceItem = $(e).closest('.cart_item_head').remove();
+
+        updateOrder();
+    }
+
+
+</script>

@@ -39,6 +39,10 @@ class Order extends Model
         'updated_at'
     ];
 
+    public function orderDetail(){
+        return $this->hasMany(OrderItem::class, 'order_id', 'order_id');
+    }
+
     public static function countOrder() {
         $orderItems = session('orderItems');
         $count = 0;
@@ -49,6 +53,13 @@ class Order extends Model
 
         return $count;
     }
+
+    public function getOrder($id){
+        $order =  Order::with('orderDetail')->where('order_id', $id)->first();
+
+        return $order ;
+    }
+
 
     public static function getOrderItems() {
         $orderItems = session('orderItems');

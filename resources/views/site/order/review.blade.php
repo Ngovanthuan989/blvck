@@ -8,14 +8,13 @@
             <div class="main">
                 <header class="main__header" role="banner">
                     <a class="logo logo--center" href="/">
-                        <img width="90" src="{{ asset('site/cacParis.png') }}" alt="">
+                        <img width="90" src="{{ asset('site\Blvck_Paris_Black.png') }}" alt="">
                     </a>
-
-                    <nav aria-label="Breadcrumb">
+                    <nav aria-label="Breadcrumb" style="padding-top: 20px ">
                         <ol class="breadcrumb breadcrumb--center" role="list">
                             <li class="breadcrumb__item breadcrumb__item--completed">
-                                <a class="breadcrumb__link" href="{{ route('order', ['languageCurrent' => $languageCurrent]) }}">
-                                    {{ $languageSetup['cart'] }}
+                                <a class="breadcrumb__link" href="#">
+                                    Cart
                                 </a>
                                 <svg class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon"
                                      aria-hidden="true" focusable="false">
@@ -24,7 +23,7 @@
                             </li>
 
                             <li class="breadcrumb__item breadcrumb__item--compelete" aria-current="step">
-                                <span class="breadcrumb__text"> {{ $languageSetup['information'] }}</span>
+                                <span class="breadcrumb__text">Information</span>
                                 <svg class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon"
                                      aria-hidden="true" focusable="false">
                                     <use xlink:href="#chevron-right"></use>
@@ -32,7 +31,7 @@
                             </li>
                             <li class="breadcrumb__item breadcrumb__item--compelete">
                                 <span class="breadcrumb__text">
-                                    {{ $languageSetup['payment'] }}
+                                     Payment
                                 </span>
                                 <svg class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon"
                                      aria-hidden="true" focusable="false">
@@ -41,37 +40,34 @@
                             </li>
                             <li class="breadcrumb__item breadcrumb__item--current">
                                 <span class="breadcrumb__text">
-                                {{ $languageSetup['review'] }}
+                                    Review
                                 </span>
                             </li>
                         </ol>
                     </nav>
 
                     <div class="shown-if-js" data-alternative-payments="">
+                        <p style="padding-top: 10px">
+                            <span>Status:</span>
+                            <select name="status" disabled class="
+                                <?php switch ($order->status) {
+                                case 1: echo 'btn-info';break;
+                                case 2: echo 'btn-warning';break;
+                                case 3: echo 'btn-danger';break;
+                                case 4: echo 'btn-success';break;
+                            }?>">
+                                <option value="1" class="btn-info clearfix" {{ ($order->status==1) ? 'selected' : ''}}>
+                                    Đã đặt đơn hàng
+                                </option>
+                                <option value="2" class="btn-warning clearfix" {{ ($order->status==2) ? 'selected' : ''}}>Đã nhận đơn hàng</option>
+                                <option value="3" class="btn-danger clearfix" {{ ($order->status==3) ? 'selected' : ''}}>Đang vận chuyển</option>
+                                <option value="4" class="btn-success clearfix" {{ ($order->status==4) ? 'selected' : ''}}>Đã giao hàng</option>
+                            </select>
                     </div>
-
-
                 </header>
-                <main class="main__content" role="main">
-                    <div class="form-group itemPayment">
-                        <h2>
-                            {{ $languageSetup['compelete-content'] }}
-
-                        </h2>
-                    </div>
-                    <hr>
-                    <div class="panel panel-default">
-
-                        <div class="btnSubmit">
-                            <a href="/" style="padding: 8px" type="submit" class="btn btn-danger">
-                                {{ $languageSetup['compelete'] }}
-                            </a>
-                        </div>
-                    </div>
-                </main>
                 <footer class="main__footer" role="contentinfo">
                     <ul class="policy-list" role="list">
-                        @foreach (\App\Entity\Menu::showWithLocation('menu-footer') as $menu)
+                        @foreach (\App\Entity\Menu::showWithLocation('category-home-center') as $menu)
                             @foreach (\App\Entity\MenuElement::showMenuPageArray($menu->slug) as $id => $menuElement)
                                 <li class="policy-list__item ">
                                     <a href="{{ $menuElement['url'] }}">{{ $menuElement['title_show'] }}</a>
@@ -84,8 +80,7 @@
             <aside class="sidebar" role="complementary">
                 <div class="sidebar__content">
                     <div id="order-summary" class="order-summary order-summary--is-collapsed" data-order-summary="">
-                        <h2 class="visually-hidden-if-js">  {{ $languageSetup['order-summary'] }}</h2>
-
+                        <h2 class="visually-hidden-if-js">Order summary</h2>
                         <div class="order-summary__sections">
                             <div class="order-summary__section order-summary__section--product-list order-summary__section--is-scrollable">
                                 <div class="order-summary__section__content" tabindex="0"
@@ -94,14 +89,15 @@
                                         <thead class="product-table__header">
                                         </thead>
                                         <tbody data-order-summary-section="line-items">
+
                                         <?php $sumPrice = 0;?>
-                                        @foreach($orderItems as $id => $item)
+                                        @foreach($order->orderDetail as $id => $item)
                                             <tr class="product">
                                                 <td class="product__image">
                                                     <div class="product-thumbnail ">
                                                         <div class="product-thumbnail__wrapper">
-                                                            <img alt="{{ $item->title }}" class="product-thumbnail__image"
-                                                                 src="{{ $item->image }}">
+                                                            <img alt="{{ \App\Entity\OrderItem::getProduct($item->product_id)->post->title }}" class="product-thumbnail__image"
+                                                                 src="{{ \App\Entity\OrderItem::getProduct($item->product_id)->post->image }}">
                                                         </div>
                                                         <span class="product-thumbnail__quantity"
                                                               aria-hidden="true">{{ $item->quantity }}</span>
@@ -109,7 +105,7 @@
                                                     <input type="hidden" class="input_quantity" name="item[{{$item->slug}}][quantity]" value="{{ $item->quantity }}">
                                                 </td>
                                                 <th class="product__description" scope="row">
-                                                    <span class="product__description__name order-summary__emphasis">{{ $item->title }}</span>
+                                                    <span class="product__description__name order-summary__emphasis">{{ \App\Entity\OrderItem::getProduct($item->product_id)->post->title }}</span>
                                                     <span class="product__description__variant order-summary__small-text">{{ $item->size }}</span>
                                                 </th>
                                                 <td class="product__price">
@@ -131,15 +127,11 @@
                                     <tfoot class="total-line-table__footer">
                                     <tr class="total-line">
                                         <th class="total-line__name payment-due-label" scope="row">
-                                            <span class="payment-due-label__total"> {{ $languageSetup['total'] }}</span>
-                                            {{--                                            <span class="payment-due-label__taxes order-summary__small-text "--}}
-                                            {{--                                                  data-checkout-taxes="">--}}
-                                            {{--                                            Including <span data-checkout-total-taxes-target="3666">£36.66</span> in taxes--}}
-                                            </span>
+                                            <span class="payment-due-label__total">Total</span>
                                         </th>
                                         <td class="total-line__price payment-due" data-presentment-currency="GBP">
                                             <span class="payment-due__price skeleton-while-loading--lg">
-                                                {{$sumPrice}} {{ isset($information['currency']) ? $information['currency'] : '' }}
+                                                {{number_format($sumPrice)}} {{ isset($information['currency']) ? $information['currency'] : '' }}
                                                 <input type="hidden" name="total_price" value="{{ $sumPrice }}">
                                             </span>
                                         </td>

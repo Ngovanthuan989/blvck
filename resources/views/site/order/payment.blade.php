@@ -8,15 +8,13 @@
             <div class="main">
                 <header class="main__header" role="banner">
                     <a class="logo logo--center" href="/">
-                        <img width="90" src="{{ asset('site/cacParis.png') }}" alt="">
+                        <img width="90" src="{{ asset('site\Blvck_Paris_Black.png') }}" alt="">
                     </a>
-
-
-                    <nav aria-label="Breadcrumb">
+                    <nav aria-label="Breadcrumb" style="padding-top: 20px ">
                         <ol class="breadcrumb breadcrumb--center" role="list">
                             <li class="breadcrumb__item breadcrumb__item--completed">
-                                <a class="breadcrumb__link" href="{{ route('order', ['languageCurrent' => $languageCurrent]) }}">
-                                    {{ $languageSetup['your-cart'] }}
+                                <a class="breadcrumb__link" href="#">
+                                    Cart
                                 </a>
                                 <svg class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon"
                                      aria-hidden="true" focusable="false">
@@ -25,7 +23,7 @@
                             </li>
 
                             <li class="breadcrumb__item breadcrumb__item--compelete" aria-current="step">
-                                <span class="breadcrumb__text"> {{ $languageSetup['information'] }}</span>
+                                <span class="breadcrumb__text">Information</span>
                                 <svg class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon"
                                      aria-hidden="true" focusable="false">
                                     <use xlink:href="#chevron-right"></use>
@@ -33,7 +31,7 @@
                             </li>
                             <li class="breadcrumb__item breadcrumb__item--current">
                                 <span class="breadcrumb__text">
-                                    {{ $languageSetup['payment'] }}
+                                     Payment
                                 </span>
                                 <svg class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon"
                                      aria-hidden="true" focusable="false">
@@ -42,7 +40,7 @@
                             </li>
                             <li class="breadcrumb__item breadcrumb__item--compelete">
                                 <span class="breadcrumb__text">
-                                {{ $languageSetup['review'] }}
+                                    Review
                                 </span>
                             </li>
                         </ol>
@@ -55,17 +53,17 @@
                 </header>
                 <main class="main__content" role="main">
                     <div class="form-group itemPayment">
-                        <h2> {{ $languageSetup['pay-to-bank'] }}</h2>
+                        <h2> Pay to bank</h2>
                     </div>
                     <div class="panel panel-default">
                         <!-- Table -->
                         <table class="table">
                             <thead>
                             <tr>
-                                <th> {{ $languageSetup['bank'] }}</th>
-                                <th> {{ $languageSetup['bank-account'] }}</th>
-                                <th> {{ $languageSetup['bank-number'] }}</th>
-                                <th> {{ $languageSetup['branch'] }}</th>
+                                <th> Bank</th>
+                                <th> Bank Account</th>
+                                <th> Bank Number</th>
+                                <th> Branch</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -89,18 +87,13 @@
                         </table>
                     </div>
                     <hr>
-
                     <p>
                         {{ $languageSetup['content-bank'] }}
                     </p>
-
-                    <div class="btnSubmit">
-                        <a href="{{ route('review') }}" style="padding: 8px" type="submit" class="btn btn-danger">{{ $languageSetup['compelete'] }}</a>
-                    </div>
                 </main>
                 <footer class="main__footer" role="contentinfo">
                     <ul class="policy-list" role="list">
-                        @foreach (\App\Entity\Menu::showWithLocation('menu-footer') as $menu)
+                        @foreach (\App\Entity\Menu::showWithLocation('category-home-center') as $menu)
                             @foreach (\App\Entity\MenuElement::showMenuPageArray($menu->slug) as $id => $menuElement)
                                 <li class="policy-list__item ">
                                     <a href="{{ $menuElement['url'] }}">{{ $menuElement['title_show'] }}</a>
@@ -113,7 +106,7 @@
             <aside class="sidebar" role="complementary">
                 <div class="sidebar__content">
                     <div id="order-summary" class="order-summary order-summary--is-collapsed" data-order-summary="">
-                        <h2 class="visually-hidden-if-js">{{ $languageSetup['order-summary'] }}</h2>
+                        <h2 class="visually-hidden-if-js">Order summary</h2>
 
                         <div class="order-summary__sections">
                             <div class="order-summary__section order-summary__section--product-list order-summary__section--is-scrollable">
@@ -160,15 +153,11 @@
                                     <tfoot class="total-line-table__footer">
                                     <tr class="total-line">
                                         <th class="total-line__name payment-due-label" scope="row">
-                                            <span class="payment-due-label__total">{{ $languageSetup['total'] }}</span>
-                                            {{--                                            <span class="payment-due-label__taxes order-summary__small-text "--}}
-                                            {{--                                                  data-checkout-taxes="">--}}
-                                            {{--                                            Including <span data-checkout-total-taxes-target="3666">£36.66</span> in taxes--}}
-                                            </span>
+                                            <span class="payment-due-label__total">Total</span>
                                         </th>
                                         <td class="total-line__price payment-due" data-presentment-currency="GBP">
                                             <span class="payment-due__price skeleton-while-loading--lg">
-                                                {{$sumPrice}} {{ isset($information['currency']) ? $information['currency'] : '' }}
+                                                {{number_format($sumPrice)}} {{ isset($information['currency']) ? $information['currency'] : '' }}
                                                 <input type="hidden" name="total_price" value="{{ $sumPrice }}">
                                             </span>
                                         </td>

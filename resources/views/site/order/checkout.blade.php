@@ -700,15 +700,11 @@
                                     <tfoot class="total-line-table__footer">
                                     <tr class="total-line">
                                         <th class="total-line__name payment-due-label" scope="row">
-                                            <span class="payment-due-label__total">{{ $languageSetup['total'] }}</span>
-{{--                                            <span class="payment-due-label__taxes order-summary__small-text "--}}
-{{--                                                  data-checkout-taxes="">--}}
-{{--                                            Including <span data-checkout-total-taxes-target="3666">£36.66</span> in taxes--}}
-                                          </span>
+                                            <span class="payment-due-label__total">Total</span>
                                         </th>
                                         <td class="total-line__price payment-due" data-presentment-currency="GBP">
                                             <span class="payment-due__price skeleton-while-loading--lg">
-                                                {{$sumPrice}} {{ isset($information['currency']) ? $information['currency'] : '' }}
+                                                {{number_format($sumPrice)}} {{ isset($information['currency']) ? $information['currency'] : '' }}
                                                 <input type="hidden" name="total_price" value="{{ $sumPrice }}">
                                             </span>
                                         </td>
@@ -720,7 +716,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cart__offcanvas__body__box2">
+                    <div class="cart__offcanvas__body__box2 ">
                         <div class="uk-text-center cart__offcanvas__body__box2__txt">
                             Customers who bought this item also bought
                         </div>

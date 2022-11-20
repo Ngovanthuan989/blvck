@@ -65,6 +65,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware' => ['admin']]
 
     Route::resource('languages', 'LanguageController');
 });
+
+Route::post('/cart/update-order', 'Site\OrderController@updateOrder')->name('update_order');
+
 //dang nhap
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin' ],function(){
     Route::get('/','LoginController@showLoginForm');
@@ -76,8 +79,9 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin' ],function(){
     Route::get('password/reset','LoginController@getReset');
     Route::post('password/reset','LoginController@postReset');
 });
+
 Route::get('/payment', 'Site\OrderController@cbOrder')->name('cb_order');
-Route::get('/review', 'Site\OrderController@review')->name('review');
+Route::get('/review/{id}', 'Site\OrderController@review')->name('review');
 
 Route::group(['namespace'=>'Site'], function() {
     Route::get('/', 'HomeController@index')->name('home');
@@ -150,3 +154,4 @@ Route::group(['prefix'=> '{languageCurrent}', 'namespace'=>'Site'], function( $l
 
     Route::get('/{type_sub_post}/{sub_post_slug}', 'SubPostController@index')->name('sub_post_detail');
 });
+

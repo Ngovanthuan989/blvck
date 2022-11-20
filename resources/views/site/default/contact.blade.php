@@ -79,20 +79,6 @@
         }
     </style>
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-        <section id="shopify-section-template--15590143951027__main" class="shopify-section section">
-            <link rel="stylesheet"
-                  href="//cdn.shopify.com/s/files/1/0080/9035/3717/t/3/assets/section-main-page.css?v=26772147938707470111649770042"
-                  media="all" onload="this.media='all'">
-
-            <div class="page-width page-width--narrow section-template--15590143951027__main-padding">
-                <h2 class="main-page-title page-title">
-                    Contact us
-                </h2>
-                <div class="rte">
-
-                </div>
-            </div>
-        </section>
         <section id="shopify-section-template--15590143951027__form" class="shopify-section section">
             <style data-shopify="">.section-template--15590143951027__form-padding {
                     padding-top: 3px;
@@ -105,40 +91,41 @@
                         padding-bottom: 36px;
                     }
                 }</style>
-            <div class="color-background-1 gradient">
+            <div id="contact-form" class="color-background-1 gradient">
                 <div class="contact page-width page-width--narrow section-template--15590143951027__form-padding">
                     @if (isset($success) && $success == 1)
-                    <h3 class="title title-wrapper--no-top-margin" style="text-align: center">Cảm ơn đã để lại liên hệ cho chúng tôi</h3>
+                    <h3 class="contact__form__heading" style="text-align: center; color: #0a0a0a">Thank you for keeping in touch with us</h3>
                     @else
+
+                    <h2 class="contact__form__heading">Write us a message.</h2>
+
                     <form method="post" action="{{ route('sub_contact', [ 'languageCurrent' => $languageCurrent]) }}" id="ContactForm" accept-charset="UTF-8"
                           class="isolate">
                         {!! csrf_field() !!}
 
-                        <div class="contact__fields">
+                        <div class="fields">
                             <div class="field">
                                 <input class="field__input" autocomplete="name" type="text" id="ContactForm-name"
                                        name="name" value="" placeholder="Name">
-                                <label class="field__label" for="ContactForm-name">Name</label>
                             </div>
+                        </div>
+                        <div class="field">
                             <div class="field field--with-error">
                                 <input autocomplete="email" type="email" id="ContactForm-email" class="field__input"
                                        name="email" spellcheck="false" autocapitalize="off" value=""
                                        aria-required="true" placeholder="Email">
-                                <label class="field__label" for="ContactForm-email">Email <span
-                                            aria-hidden="true">*</span></label></div>
+                            </div>
                         </div>
                         <div class="field">
                             <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel"
                                    name="phone" pattern="[0-9\-]*" value="" placeholder="Phone number">
-                            <label class="field__label" for="ContactForm-phone">Phone number</label>
                         </div>
                         <div class="field">
                             <textarea rows="10" id="ContactForm-body" class="text-area field__input"
-                                      name="message" placeholder="Comment"></textarea>
-                            <label class="form__label field__label" for="ContactForm-body">Comment</label>
+                                      name="message" placeholder="Message"></textarea>
                         </div>
                         <div class="contact__button">
-                            <button type="submit" class="button">
+                            <button id="button_submit" type="submit" class="button">
                                 Send
                             </button>
                         </div>

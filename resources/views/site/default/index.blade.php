@@ -8,7 +8,6 @@
 
 @section('content')
     <div class="home__slideshow uk-slideshow uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="ratio: false">
-
         <ul class="uk-slideshow-items" uk-height-viewport="min-height: 300" uk-scrollspy="cls: uk-animation-scale-down; target: .animation; delay: 500; repeat: true">
             @foreach(\App\Entity\SubPost::showSubPost('banner', 2) as $id => $item)
             <li>
@@ -38,11 +37,140 @@
             </li>
             @endforeach
         </ul>
-
         <a class="uk-position-center-left uk-position-small" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
         <a class="uk-position-center-right uk-position-small" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
 
     </div>
+
+    <!--Product-->
+    <h2 class="uk-h2 uk-text-center home__product__title" style="color: #000">Just Dropped</h2>
+
+    <ul class="home__product__navTabs home__product__item-32-20 uk-subnav uk-subnav-pill uk-flex-center"
+        uk-switcher="connect: .switcher-container">
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Accessories</a></li>
+    </ul>
+
+    <ul class="uk-switcher switcher-container home__slideshow__item-60-35">
+        <li>
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+                <ul class="uk-slider-items uk-child-width-auto">
+                    @foreach(\App\Entity\Product::showProduct('women') as $item)
+                    <li>
+                        <div class="uk-card home__product__card">
+                            <div class="uk-cover-container uk-inline-clip uk-transition-toggle">
+                                <img src="{{ isset($item['image']) ? $item['image'] : '' }}" alt="" uk-cover="">
+                                <img class="uk-transition-scale-up" src="{{ isset($item['anh-2']) ? $item['anh-2'] : $item['image'] }}" alt="" uk-cover="">
+                                <a class="home__product__card__quickadd uk-transition-slide-bottom uk-text-center uk-link-toggle uk-position-bottom uk-overlay uk-overlay-default">
+                                    Quick add
+                                </a>
+                                <canvas width="524" height="524"></canvas>
+                            </div>
+                            <div class="home__product__card__body uk-text-center">
+                                <h3 class="uk-h3 uk-margin-remove home__product__card__title">
+                                    <a href="" class="uk-link-toggle">{{ isset($item['title']) ? $item['title'] : '' }}</a>
+                                </h3>
+                                <div class="item__4">
+                                    <span class="home__product__card__price home__product__card__price--new">
+                                        {{ isset($item['price']) ? number_format($item['price']) : '' }}
+                                        {{ isset($information['currency']) ? $information['currency'] : '' }}
+                                    </span>
+                                    <del class="home__product__card__price home__product__card__price--old">
+                                        {{ isset($item['giam-gia']) ? number_format($item['giam-gia']) : '' }}
+                                        {{ isset($information['currency']) ? $information['currency'] : '' }}
+                                    </del>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+            </div>
+        </li>
+        <li><div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-2" uk-slider>
+
+                <ul class="uk-slider-items uk-child-width-auto">
+                    @foreach(\App\Entity\Product::showProduct('men') as $item)
+                        <li>
+                            <div class="uk-card home__product__card">
+                                <div class="uk-cover-container uk-inline-clip uk-transition-toggle">
+                                    <img src="{{ isset($item['image']) ? $item['image'] : '' }}" alt="" uk-cover="">
+                                    <img class="uk-transition-scale-up" src="{{ isset($item['anh-2']) ? $item['anh-2'] : $item['image'] }}" alt="" uk-cover="">
+                                    <a class="home__product__card__quickadd uk-transition-slide-bottom uk-text-center uk-link-toggle uk-position-bottom uk-overlay uk-overlay-default">
+                                        Quick add
+                                    </a>
+                                    <canvas width="524" height="524"></canvas>
+                                </div>
+                                <div class="home__product__card__body uk-text-center">
+                                    <h3 class="uk-h3 uk-margin-remove home__product__card__title">
+                                        <a href="" class="uk-link-toggle">{{ isset($item['title']) ? $item['title'] : '' }}</a>
+                                    </h3>
+                                    <div class="item__4">
+                                    <span class="home__product__card__price home__product__card__price--new">
+                                        {{ isset($item['price']) ? number_format($item['price']) : '' }}
+                                        {{ isset($information['currency']) ? $information['currency'] : '' }}
+                                    </span>
+                                        <del class="home__product__card__price home__product__card__price--old">
+                                            {{ isset($item['giam-gia']) ? number_format($item['giam-gia']) : '' }}
+                                            {{ isset($information['currency']) ? $information['currency'] : '' }}
+                                        </del>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+            </div></li>
+        <li><div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-3" uk-slider>
+                <ul class="uk-slider-items uk-child-width-auto">
+                    @foreach(\App\Entity\Product::showProduct('accessories') as $item)
+                        <li>
+                            <div class="uk-card home__product__card">
+                                <div class="uk-cover-container uk-inline-clip uk-transition-toggle">
+                                    <img src="{{ isset($item['image']) ? $item['image'] : '' }}" alt="" uk-cover="">
+                                    <img class="uk-transition-scale-up" src="{{ isset($item['anh-2']) ? $item['anh-2'] : $item['image'] }}" alt="" uk-cover="">
+                                    <a class="home__product__card__quickadd uk-transition-slide-bottom uk-text-center uk-link-toggle uk-position-bottom uk-overlay uk-overlay-default">
+                                        Quick add
+                                    </a>
+                                    <canvas width="524" height="524"></canvas>
+                                </div>
+                                <div class="home__product__card__body uk-text-center">
+                                    <h3 class="uk-h3 uk-margin-remove home__product__card__title">
+                                        <a href="" class="uk-link-toggle">{{ isset($item['title']) ? $item['title'] : '' }}</a>
+                                    </h3>
+                                    <div class="item__4">
+                                    <span class="home__product__card__price home__product__card__price--new">
+                                        {{ isset($item['price']) ? number_format($item['price']) : '' }}
+                                        {{ isset($information['currency']) ? $information['currency'] : '' }}
+                                    </span>
+                                        <del class="home__product__card__price home__product__card__price--old">
+                                            {{ isset($item['giam-gia']) ? number_format($item['giam-gia']) : '' }}
+                                            {{ isset($information['currency']) ? $information['currency'] : '' }}
+                                        </del>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+            </div>
+            </li>
+    </ul>
+    <!--/Product-->
+
     <!--BLVCK HOME-->
     @foreach(\App\Entity\SubPost::showSubPost('block-1', 1) as $id => $item)
         <div class="uk-height-viewport uk-flex uk-flex-middle uk-background-norepeat uk-background-center-center uk-background-cover"

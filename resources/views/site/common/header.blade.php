@@ -34,8 +34,9 @@
                 </div>
                 <div class="header__top__boxSearch nav-overlay uk-navbar-left uk-flex-1" hidden>
                     <div class="uk-navbar-item uk-width-expand">
-                        <form class="uk-search uk-search-navbar uk-width-1-1">
-                            <input class="header__top__boxSearch__input uk-search-input" type="search" placeholder="Search" aria-label="Search" autofocus>
+                        <form class="uk-search uk-search-navbar uk-width-1-1" method="GET" action="{{ route('search', [ 'languageCurrent' => $languageCurrent] ) }}">
+                            <input class="header__top__boxSearch__input uk-search-input" type="search" name="word"
+                                   placeholder="Search" aria-label="Search" autofocus>
                         </form>
                     </div>
                     <a class="uk-navbar-toggle btnClose_Search" uk-close uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>

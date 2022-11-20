@@ -26,4 +26,17 @@ class OrderItem extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function product(){
+        return $this->hasOne(OrderItem::class, 'product_id', 'product_id');
+    }
+
+    public static function getProduct($id){
+         $product = Product::with('post')
+             ->where('product_id', $id)
+             ->first();
+
+         return $product;
+
+    }
 }

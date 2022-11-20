@@ -38,7 +38,7 @@
     </div>
     @endforeach
 </div>
-<div class="uk-section-xsmall">
+<div class="uk-section-xsmall" style="color: #0a0a0a">
     <div class="uk-container uk-container-expand">
         <ul class="uk-pagination uk-flex-center" uk-margin>
             @if ($posts->lastPage() > 1)

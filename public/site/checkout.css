@@ -1198,7 +1198,8 @@ body {
 
 .sidebar {
     position: relative;
-    color: #535353
+    color: #535353;
+    background: #fff;
 }
 
 .no-js .sidebar, .no-generatedcontent .sidebar {

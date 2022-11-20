@@ -25,8 +25,12 @@ class Product extends Model
         'buy_after'
     ];
 
+    public function post(){
+        return $this->hasOne(Post::class ,'post_id','post_id' );
+    }
+
     public static function showProduct($slug, $countPost = 5) {
-        return Post::where('posts.post_type', 'product')
+        $products =  Post::where('posts.post_type', 'product')
             ->join('category_post', 'posts.post_id', '=', 'category_post.post_id')
             ->join('categories', 'category_post.category_id', '=', 'categories.category_id')
             ->join('products', 'products.post_id', '=', 'posts.post_id')
@@ -36,12 +40,23 @@ class Product extends Model
                 'products.price',
                 'products.discount',
                 'products.discount_start',
-                'products.discount_end'
+                'products.discount_end',
+                'products.image_list'
             )
             ->offset(0)
             ->where('posts.language', session('languageCurrent', 'vn'))
             ->limit($countPost)
             ->get();
+
+        foreach ($products as $product){
+            $inputs = Input::where('post_id', $product->post_id)->get();
+
+            foreach ($inputs as $input) {
+                $product[$input->type_input_slug] = $input->content;
+            }
+        }
+
+        return $products;
     }
 
     public static function newProduct($countPost = 5) {
