@@ -231,7 +231,34 @@ h2.contact__form__heading {
     font-weight: 500;
     color: white;
     text-decoration: none;
+
+    position: relative;
+    width: 100%;
+    display: block;
 }
+.nav__link i {
+    position: absolute;
+    right: 40px;
+    top: 3px;
+}
+
+.nav__sub .nav__link i {
+    right: 70px;
+}
+
+.nav__sub__child.nav__sub .nav__link i {
+    right: 100px;
+}
+
+/*.nav__sub .nav__link.sub__close{*/
+/*    text-align: center;*/
+/*    position: relative;*/
+/*}*/
+/*.nav__sub .nav__link.sub__close i {*/
+/*    position: absolute;*/
+/*    left: 30px;*/
+/*    top: 3px;*/
+/*}*/
 
 .nav__sub {
     position: absolute;
@@ -245,12 +272,14 @@ h2.contact__form__heading {
     transition: all 0.35s ease-in-out;
     transform: translateX(100%);
 }
+
 .nav__sub.is-active {
     opacity: 1;
     visibility: visible;
     transform: translateX(0%);
     background: #000;
     left: 0;
+    z-index: 99;
 }
 .uk-offcanvas-bar{
     padding: 0;
@@ -258,6 +287,10 @@ h2.contact__form__heading {
 
 .nav-bottom .nav__link{
     color: #ffffffa8;
+}
+
+.fix__botom .uk-navbar-item {
+    background: black;
 }
 
 @media (max-width: 768px) {

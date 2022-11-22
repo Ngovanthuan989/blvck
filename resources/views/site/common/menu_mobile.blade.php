@@ -8,13 +8,12 @@
                         @if (!empty($menuElement['children']))
                             <a class="nav__link" href="{{ $menuElement['url'] }}">
                                 {{ $menuElement['title_show'] }}
-
+                                <i class="fa fa-angle-right"></i>
                             </a>
-                            <i class="fa fa-chevron-right"></i>
 
                             <ul class="nav__sub">
                                 <li class="nav__item sliderow__title">
-                                    <a class="nav__link sub__close" href="#"><i class="fa fa-chevron-left"></i>
+                                    <a class="nav__link sub__close" href="#"><i class="fa fa-angle-left"></i>
                                         {{ $menuElement['title_show'] }}
                                     </a>
                                 </li>
@@ -22,12 +21,12 @@
                                     <li class="nav__item sliderow__title">
                                         <a class="nav__link"
                                            href="{{ $elementparent['url'] }}">{{ $elementparent['title_show'] }}
-                                            <i class="fa fa-chevron-right"></i>
+                                            <i class="fa fa-angle-right"></i>
                                         </a>
-                                        <ul class="nav__sub">
+                                        <ul class="nav__sub nav__sub__child">
                                             <li class="nav__item sliderow__title">
-                                                <a class="nav__link sub__close" href="#"><i
-                                                            class="fa fa-chevron-left"></i> {{ $elementparent['title_show'] }}
+                                                <a class="nav__link sub__close" href="#"><i class="fa fa-angle-left"></i>
+                                                    {{ $elementparent['title_show'] }}
                                                 </a>
                                             </li>
                                             @if (!empty($elementparent['children']))
@@ -41,7 +40,23 @@
                                         </ul>
                                     </li>
                                 @endforeach
+                                <li style="width: 80%">
+                                    @foreach(\App\Entity\Category::getCategoryProductHasImage('product') as $cate)
+                                        <div>
+                                            <div class="uk-cover-container header__bottom__cover">
+                                                <img src="{{ isset($cate['image']) ? $cate['image'] : '' }}" alt="" uk-cover="">
+                                                <canvas width="573" height="459"></canvas>
+                                                <div class="header__bottom__box uk-position-cover uk-padding-small uk-flex uk-flex-column uk-flex-center uk-flex-middle">
+                                                    <h3 class="uk-h3 header__bottom__box__title">{{ isset($cate['title']) ? $cate['title'] : '' }}</h3>
+                                                    <p class="header__bottom__box__desc">Shop Now</p>
+                                                </div>
+                                                <a href="{{ route('category_product', ['slug' => $cate->slug,  'languageCurrent' => $languageCurrent]) }}" class="uk-position-cover"></a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </li>
                             </ul>
+
                         @else
                             <a class="nav__link" href="{{ $menuElement['url'] }}">{{ $menuElement['title_show'] }}</a>
                         @endif
@@ -61,6 +76,15 @@
             @endforeach
 
         </ul>
+        <div class="fix__botom">
+            <div class="uk-navbar-item">
+            @foreach(\App\Entity\SubPost::showSubPost('mang-xa-hoi', 6) as $id => $item)
+                <a href="{{ isset($item['link']) ? $item['link'] : '' }}" class="uk-icon-link uk-margin-small-right"
+                   uk-icon="{{ isset($item['description']) ? $item['description'] : '' }}" uk-tooltip="{{ isset($item['title']) ? $item['title'] : '' }}"></a>
+            @endforeach
+
+        </div>
+        </div>
 
     </div>
 </div>
