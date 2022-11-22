@@ -190,8 +190,82 @@ h2.contact__form__heading {
 .uk-pagination a{
     color: #000 !important;
 }
+
+.uk-offcanvas-bar.uk-offcanvas-bar-animation.uk-offcanvas-slide {
+    width: 90%;
+}
+
+    /*.uk-offcanvas {*/
+    /*    top: 70px;*/
+    /*}*/
+.nav,
+.nav__sub {
+    margin-top: 0;
+    margin-bottom: 0;
+    /*padding: 15px;*/
+    list-style-type: none;
+    padding-top: 40px;
+    height: 100%;
+    width: auto;
+}
+
+
+.nav {
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav__item + .nav__item {
+    --item-height: 50px;
+    --sliderule-height: auto;
+    width: 100%;
+
+    margin-top: 15px;
+}
+.sliderow__title {
+    padding:  8px 0;
+    margin:  8px 0;
+}
+.nav__link {
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+}
+
+.nav__sub {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease-in-out;
+    transform: translateX(100%);
+}
+.nav__sub.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0%);
+    background: #000;
+    left: 0;
+}
+.uk-offcanvas-bar{
+    padding: 0;
+}
+
+.nav-bottom .nav__link{
+    color: #ffffffa8;
+}
+
 @media (max-width: 768px) {
     .color-background-1.gradient {
         width: 70%;
+    }
+
+    .uk-active nav.uk-navbar.uk-navbar-container.uk-navbar-transparent{
+        border-bottom: 1px solid #353333;
     }
 }

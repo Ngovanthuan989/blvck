@@ -44,11 +44,9 @@
             </nav>
         </div>
     </div>
-
     <nav class="header__bottom uk-visible@m uk-flex-center uk-navbar uk-navbar-container uk-navbar-transparent" uk-navbar>
         <div class="uk-navbar-left uk-light">
             <ul class="uk-navbar-nav">
-
             @foreach (\App\Entity\Menu::showWithLocation('menu-chinh') as $menu)
                     @foreach (\App\Entity\MenuElement::showMenuPageArray($menu->slug) as $id => $menuElement)
                         <li>
@@ -104,4 +102,7 @@
             </ul>
         </div>
     </nav>
+
+    @include('site.common.menu_mobile')
+
 </header>

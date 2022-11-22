@@ -35,7 +35,6 @@
 <body class="<?= (isset($bodyClass)) ? $bodyClass : '' ?>">
 @include('site.common.cart')
 
-@include('site.common.menu_mobile')
 <!--app-->
 <div id="app" class="uk-height-viewport uk-offcanvas-content uk-overflow-hidden uk-position-relative">
     @include('site.common.header')
@@ -52,6 +51,7 @@
     const app = {
         render: function () {
             const uk_navbar_dropdown = x('.uk-navbar-dropdown');
+            const uk_navbar_toggle_icon = x('.uk-navbar-toggle-icon');
             const header = x('.header');
             const btnClose_Search = x('.btnClose_Search');
             const html = x('html');
