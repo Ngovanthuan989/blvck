@@ -149,7 +149,7 @@ class ProductController extends AdminController
 
             $codes = $request->input('code');
             $prices = $request->input('price');
-            $discount = $request->input('discount');
+//            $discount = $request->input('discount');
             $properties = $request->input('properties');
             $imageList = $request->input('image_list');
 
@@ -158,7 +158,7 @@ class ProductController extends AdminController
                 'post_id' => $postId,
                 'code' =>  $codes[$id],
                 'price' =>  $prices[$id],
-                'discount' =>  $discount[$id],
+//                'discount' =>  $discount[$id],
                 'image_list' =>  $imageList[$id],
                 'properties' =>  $properties[$id],
             ]);

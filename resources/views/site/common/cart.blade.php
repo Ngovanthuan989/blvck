@@ -100,16 +100,16 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <form enctype="multipart/form-data"
-                                          id="add-to-cart-form" method="post" accept-charset="utf-8">
-                                        {{ csrf_field() }}
+{{--                                    <form enctype="multipart/form-data"--}}
+{{--                                          id="add-to-cart-form" method="post" accept-charset="utf-8">--}}
+{{--                                        {{ csrf_field() }}--}}
 
-                                        <input class="quantity__input"
-                                               type="number"
-                                               name="quantity[]"
-                                               id="Quantity-template--15590144082099__main"
-                                               min="1"
-                                               value="1">
+{{--                                        <input class="quantity__input"--}}
+{{--                                               type="number"--}}
+{{--                                               name="quantity[]"--}}
+{{--                                               id="Quantity-template--15590144082099__main"--}}
+{{--                                               min="1"--}}
+{{--                                               value="1">--}}
 {{--                                        @if($item->properties)--}}
 {{--                                            @foreach(explode(',', $item->properties) as $id =>$size )--}}
 {{--                                                <input type="radio" id="template--15590144082099__main-1-{{$id}}"--}}
@@ -121,17 +121,17 @@
 {{--                                            @endforeach--}}
 {{--                                        @endif--}}
 
-                                        <input type="hidden" class="size" name="size[]"
-                                               value="XXLL"/>
+{{--                                        <input type="hidden" class="size" name="size[]"--}}
+{{--                                               value="XXLL"/>--}}
 
-                                        <input type="hidden" class="product_id" name="product_id[]"
-                                               value="{{ isset($item['product_id']) ? $item['product_id'] : '' }}"/>
-                                        <button type="button" onclick="return addToOrder(this);"
-                                                name="add">
-                                            Add
-                                        </button>
+{{--                                        <input type="hidden" class="product_id" name="product_id[]"--}}
+{{--                                               value="{{ isset($item['product_id']) ? $item['product_id'] : '' }}"/>--}}
+{{--                                        <button type="button" onclick="return addToOrder(this);"--}}
+{{--                                                name="add">--}}
+{{--                                            Add--}}
+{{--                                        </button>--}}
 
-                                    </form>
+{{--                                    </form>--}}
                                     <span class="cart__offcanvas__body__price cart__offcanvas__body__price--new">
                                         {{ isset($item['price']) ? number_format($item['price']) : '' }}
                                         {{ isset($information['currency']) ? $information['currency'] : '₫' }}
