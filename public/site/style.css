@@ -217,6 +217,64 @@ body {
 }
 
 @media (min-width: 1600px) {
+  .uk-grid-8-xl {
+    margin-left: -8px !important;
+  }
+  .uk-grid-8-xl > * {
+    padding-left: 8px !important;
+  }
+  .uk-grid-8-xl > .uk-grid-margin {
+    margin-top: 8px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .uk-grid-8-l {
+    margin-left: -8px !important;
+  }
+  .uk-grid-8-l > * {
+    padding-left: 8px !important;
+  }
+  .uk-grid-8-l > .uk-grid-margin {
+    margin-top: 8px !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .uk-grid-8-m {
+    margin-left: -8px !important;
+  }
+  .uk-grid-8-m > * {
+    padding-left: 8px !important;
+  }
+  .uk-grid-8-m > .uk-grid-margin {
+    margin-top: 8px !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .uk-grid-8-s {
+    margin-left: -8px !important;
+  }
+  .uk-grid-8-s > * {
+    padding-left: 8px !important;
+  }
+  .uk-grid-8-s > .uk-grid-margin {
+    margin-top: 8px !important;
+  }
+}
+
+.uk-grid-8 {
+  margin-left: -8px;
+}
+.uk-grid-8 > * {
+  padding-left: 8px;
+}
+.uk-grid-8 > .uk-grid-margin {
+  margin-top: 8px;
+}
+
+@media (min-width: 1600px) {
   .uk-grid-10-xl {
     margin-left: -10px !important;
   }
@@ -504,6 +562,64 @@ body {
 }
 .uk-grid-50 > .uk-grid-margin {
   margin-top: 50px;
+}
+
+@media (min-width: 1600px) {
+  .uk-grid-200-xl {
+    margin-left: -200px !important;
+  }
+  .uk-grid-200-xl > * {
+    padding-left: 200px !important;
+  }
+  .uk-grid-200-xl > .uk-grid-margin {
+    margin-top: 200px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .uk-grid-200-l {
+    margin-left: -200px !important;
+  }
+  .uk-grid-200-l > * {
+    padding-left: 200px !important;
+  }
+  .uk-grid-200-l > .uk-grid-margin {
+    margin-top: 200px !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .uk-grid-200-m {
+    margin-left: -200px !important;
+  }
+  .uk-grid-200-m > * {
+    padding-left: 200px !important;
+  }
+  .uk-grid-200-m > .uk-grid-margin {
+    margin-top: 200px !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .uk-grid-200-s {
+    margin-left: -200px !important;
+  }
+  .uk-grid-200-s > * {
+    padding-left: 200px !important;
+  }
+  .uk-grid-200-s > .uk-grid-margin {
+    margin-top: 200px !important;
+  }
+}
+
+.uk-grid-200 {
+  margin-left: -200px;
+}
+.uk-grid-200 > * {
+  padding-left: 200px;
+}
+.uk-grid-200 > .uk-grid-margin {
+  margin-top: 200px;
 }
 
 @media (min-width: 1600px) {
@@ -856,44 +972,44 @@ body {
   }
 }
 
-.fz-10, .footer__moneySelect {
+.fz-10, .productDetail__contentLeft__btn--connect, .productDetail__contentLeft__btn--addCart, .product__content__fillter__navItem, .footer__moneySelect {
   font-size: 10px !important;
 }
 @media screen and (min-width: 640px) {
-  .fz-10, .footer__moneySelect {
+  .fz-10, .productDetail__contentLeft__btn--connect, .productDetail__contentLeft__btn--addCart, .product__content__fillter__navItem, .footer__moneySelect {
     font-size: calc(10px + 0 * ((100vw - 640px) / 560)) !important;
   }
 }
 @media screen and (min-width: 1200px) {
-  .fz-10, .footer__moneySelect {
+  .fz-10, .productDetail__contentLeft__btn--connect, .productDetail__contentLeft__btn--addCart, .product__content__fillter__navItem, .footer__moneySelect {
     font-size: 10px !important;
   }
 }
 
-.fz-11, .home__product__card__quickadd {
+.fz-11, .home__product__card__quickadd, .home__product__card__sale-box {
   font-size: 11px !important;
 }
 @media screen and (min-width: 640px) {
-  .fz-11, .home__product__card__quickadd {
+  .fz-11, .home__product__card__quickadd, .home__product__card__sale-box {
     font-size: calc(11px + 0 * ((100vw - 640px) / 560)) !important;
   }
 }
 @media screen and (min-width: 1200px) {
-  .fz-11, .home__product__card__quickadd {
+  .fz-11, .home__product__card__quickadd, .home__product__card__sale-box {
     font-size: 11px !important;
   }
 }
 
-.fz-12, .blog__link, .blog__tag, .blog__time, .home__slideshow__btn, .cart__offcanvas__body__price, .cart__offcanvas__body__boxCount .uk-input, .cart__offcanvas__body__size, .cart__offcanvas__body__box2__btn, .header__bottom .uk-navbar-nav > li > a, .header__bottom .uk-navbar-dropdown-nav > li > a {
+.fz-12, .productDetail__contentLeft__accordion__title, .product__content__fillter__dropdown .uk-nav > li > a, .product__span, .blog__link, .blog__tag, .blog__time, .home__slideshow__btn, .cart__offcanvas__body__price, .cart__offcanvas__body__boxCount .uk-input, .cart__offcanvas__body__size, .cart__offcanvas__body__box2__btn, .header__bottom .uk-navbar-nav > li > a, .header__bottom .uk-navbar-dropdown-nav > li > a {
   font-size: 12px !important;
 }
 @media screen and (min-width: 640px) {
-  .fz-12, .blog__link, .blog__tag, .blog__time, .home__slideshow__btn, .cart__offcanvas__body__price, .cart__offcanvas__body__boxCount .uk-input, .cart__offcanvas__body__size, .cart__offcanvas__body__box2__btn, .header__bottom .uk-navbar-nav > li > a, .header__bottom .uk-navbar-dropdown-nav > li > a {
+  .fz-12, .productDetail__contentLeft__accordion__title, .product__content__fillter__dropdown .uk-nav > li > a, .product__span, .blog__link, .blog__tag, .blog__time, .home__slideshow__btn, .cart__offcanvas__body__price, .cart__offcanvas__body__boxCount .uk-input, .cart__offcanvas__body__size, .cart__offcanvas__body__box2__btn, .header__bottom .uk-navbar-nav > li > a, .header__bottom .uk-navbar-dropdown-nav > li > a {
     font-size: calc(12px + 0 * ((100vw - 640px) / 560)) !important;
   }
 }
 @media screen and (min-width: 1200px) {
-  .fz-12, .blog__link, .blog__tag, .blog__time, .home__slideshow__btn, .cart__offcanvas__body__price, .cart__offcanvas__body__boxCount .uk-input, .cart__offcanvas__body__size, .cart__offcanvas__body__box2__btn, .header__bottom .uk-navbar-nav > li > a, .header__bottom .uk-navbar-dropdown-nav > li > a {
+  .fz-12, .productDetail__contentLeft__accordion__title, .product__content__fillter__dropdown .uk-nav > li > a, .product__span, .blog__link, .blog__tag, .blog__time, .home__slideshow__btn, .cart__offcanvas__body__price, .cart__offcanvas__body__boxCount .uk-input, .cart__offcanvas__body__size, .cart__offcanvas__body__box2__btn, .header__bottom .uk-navbar-nav > li > a, .header__bottom .uk-navbar-dropdown-nav > li > a {
     font-size: 12px !important;
   }
 }
@@ -912,16 +1028,16 @@ body {
   }
 }
 
-.fz-14, .home__blog__desc, .home__product__card__price, .cart__offcanvas__body__name, .cart__offcanvas__body__box2__txt, .cart__offcanvas__header__title, .footer__title, .footer__accordion .uk-accordion-title {
+.fz-14, .productDetail__contentLeft__label, .productDetail__contentLeft__btn--buy, .home__blog__desc, .home__product__card__price, .cart__offcanvas__body__name, .cart__offcanvas__body__box2__txt, .cart__offcanvas__header__title, .footer__title, .footer__accordion .uk-accordion-title {
   font-size: 14px !important;
 }
 @media screen and (min-width: 640px) {
-  .fz-14, .home__blog__desc, .home__product__card__price, .cart__offcanvas__body__name, .cart__offcanvas__body__box2__txt, .cart__offcanvas__header__title, .footer__title, .footer__accordion .uk-accordion-title {
+  .fz-14, .productDetail__contentLeft__label, .productDetail__contentLeft__btn--buy, .home__blog__desc, .home__product__card__price, .cart__offcanvas__body__name, .cart__offcanvas__body__box2__txt, .cart__offcanvas__header__title, .footer__title, .footer__accordion .uk-accordion-title {
     font-size: calc(14px + 0 * ((100vw - 640px) / 560)) !important;
   }
 }
 @media screen and (min-width: 1200px) {
-  .fz-14, .home__blog__desc, .home__product__card__price, .cart__offcanvas__body__name, .cart__offcanvas__body__box2__txt, .cart__offcanvas__header__title, .footer__title, .footer__accordion .uk-accordion-title {
+  .fz-14, .productDetail__contentLeft__label, .productDetail__contentLeft__btn--buy, .home__blog__desc, .home__product__card__price, .cart__offcanvas__body__name, .cart__offcanvas__body__box2__txt, .cart__offcanvas__header__title, .footer__title, .footer__accordion .uk-accordion-title {
     font-size: 14px !important;
   }
 }
@@ -940,16 +1056,16 @@ body {
   }
 }
 
-.fz-16, .home__slideshow__txt, .home__product__navTabs > li > a, .cart__offcanvas__footer__btn, .cart__offcanvas__footer__txt, .footer__navList > li > a, .footer__label, .header__bottom__box__desc, .header__top__boxSearch .uk-search-input {
+.fz-16, .productDetail__contentLeft__btn--find, .productDetail__contentLeft__boxSale, .productDetail__contentLeft__accordion__content, .product__offcanvas__btnReset, .home__slideshow__txt, .home__product__navTabs > li > a, .home__product__card__review__txt, .cart__offcanvas__footer__btn, .cart__offcanvas__footer__txt, .footer__navList > li > a, .footer__label, .header__bottom__box__desc, .header__top__boxSearch .uk-search-input {
   font-size: 16px !important;
 }
 @media screen and (min-width: 640px) {
-  .fz-16, .home__slideshow__txt, .home__product__navTabs > li > a, .cart__offcanvas__footer__btn, .cart__offcanvas__footer__txt, .footer__navList > li > a, .footer__label, .header__bottom__box__desc, .header__top__boxSearch .uk-search-input {
+  .fz-16, .productDetail__contentLeft__btn--find, .productDetail__contentLeft__boxSale, .productDetail__contentLeft__accordion__content, .product__offcanvas__btnReset, .home__slideshow__txt, .home__product__navTabs > li > a, .home__product__card__review__txt, .cart__offcanvas__footer__btn, .cart__offcanvas__footer__txt, .footer__navList > li > a, .footer__label, .header__bottom__box__desc, .header__top__boxSearch .uk-search-input {
     font-size: calc(16px + 0 * ((100vw - 640px) / 560)) !important;
   }
 }
 @media screen and (min-width: 1200px) {
-  .fz-16, .home__slideshow__txt, .home__product__navTabs > li > a, .cart__offcanvas__footer__btn, .cart__offcanvas__footer__txt, .footer__navList > li > a, .footer__label, .header__bottom__box__desc, .header__top__boxSearch .uk-search-input {
+  .fz-16, .productDetail__contentLeft__btn--find, .productDetail__contentLeft__boxSale, .productDetail__contentLeft__accordion__content, .product__offcanvas__btnReset, .home__slideshow__txt, .home__product__navTabs > li > a, .home__product__card__review__txt, .cart__offcanvas__footer__btn, .cart__offcanvas__footer__txt, .footer__navList > li > a, .footer__label, .header__bottom__box__desc, .header__top__boxSearch .uk-search-input {
     font-size: 16px !important;
   }
 }
@@ -993,6 +1109,20 @@ body {
 @media screen and (min-width: 1200px) {
   .fz-22, .home__product__card__title, .sidebar__title {
     font-size: 22px !important;
+  }
+}
+
+.fz-23, .productDetail__contentLeft__price {
+  font-size: 18.4px !important;
+}
+@media screen and (min-width: 640px) {
+  .fz-23, .productDetail__contentLeft__price {
+    font-size: calc(18.4px + 4.6 * ((100vw - 640px) / 560)) !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .fz-23, .productDetail__contentLeft__price {
+    font-size: 23px !important;
   }
 }
 
@@ -1052,16 +1182,30 @@ body {
   }
 }
 
-.fz-40, .blog__title1 {
+.fz-39 {
+  font-size: 27.3px !important;
+}
+@media screen and (min-width: 640px) {
+  .fz-39 {
+    font-size: calc(27.3px + 11.7 * ((100vw - 640px) / 560)) !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .fz-39 {
+    font-size: 39px !important;
+  }
+}
+
+.fz-40, .productDetail__contentLeft__title, .blog__title1 {
   font-size: 28px !important;
 }
 @media screen and (min-width: 640px) {
-  .fz-40, .blog__title1 {
+  .fz-40, .productDetail__contentLeft__title, .blog__title1 {
     font-size: calc(28px + 12 * ((100vw - 640px) / 560)) !important;
   }
 }
 @media screen and (min-width: 1200px) {
-  .fz-40, .blog__title1 {
+  .fz-40, .productDetail__contentLeft__title, .blog__title1 {
     font-size: 40px !important;
   }
 }
@@ -1605,6 +1749,9 @@ body {
   border-left: none;
   background-color: #b6b6b6;
 }
+.uk-grid-margin > .home__product__card {
+  border-top: none;
+}
 .home__product__card canvas {
   width: 362px !important;
 }
@@ -1613,9 +1760,30 @@ body {
     width: 524px !important;
   }
 }
+.home__product__card__sale-box {
+  margin: 5px;
+  padding: 0 15px;
+  background: #000 !important;
+  color: #ffffff !important;
+  border-radius: 0;
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+  min-width: 80px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.home__product__card__review i.fa {
+  color: rgb(33, 33, 33) !important;
+}
+.home__product__card__review__txt {
+  color: rgb(33, 33, 33) !important;
+  line-height: 1.375;
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+}
 .home__product__card__body {
   padding: 7px;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 }
 .home__product__card__quickadd {
   padding: 15px 15px;
@@ -1623,6 +1791,14 @@ body {
   text-transform: uppercase;
   letter-spacing: 1.32px;
   font-family: "Avenir Next LT Pro Regular", sans-serif;
+}
+.product__content .home__product__card__quickadd {
+  padding: 10px 15px;
+}
+@media (min-width: 960px) {
+  .product__content .home__product__card__quickadd {
+    padding: 15px 15px;
+  }
 }
 .home__product__card__title {
   color: rgb(0, 0, 0);
@@ -1815,6 +1991,256 @@ body {
   color: rgb(33, 33, 33);
   letter-spacing: 1.44px;
   font-family: "Avenir Next LT Pro Medium", sans-serif;
+}
+
+.product__offcanvas__bar {
+  padding: 0;
+  background: #ffffff;
+}
+.product__offcanvas__bar > * {
+  color: rgb(33, 33, 33);
+}
+.product__offcanvas__padding, .product__offcanvas__footer, .product__offcanvas__body, .product__offcanvas__header {
+  padding: 15px 15px;
+}
+.product__offcanvas__title {
+  margin: 0;
+}
+.product__offcanvas__btnReset {
+  color: #000000 !important;
+  border-color: #000000 !important;
+  text-transform: inherit;
+  line-height: 44px;
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+}
+.product__offcanvas__btnReset:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+.product__offcanvas__header {
+  background: #000;
+}
+.product__title {
+  color: rgb(255, 255, 255);
+  line-height: 1.2;
+  font-family: "Montserrat Regular", sans-serif;
+}
+.product__title {
+  font-size: 40px !important;
+}
+@media screen and (min-width: 640px) {
+  .product__title {
+    font-size: calc(40px + 50 * ((100vw - 640px) / 560)) !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .product__title {
+    font-size: 90px !important;
+  }
+}
+.product__span {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0 40px;
+  text-transform: uppercase;
+  font-family: "Avenir Next LT Pro Bold", sans-serif;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+}
+.product__content__fillter {
+  background: #000;
+  min-height: 57px;
+  border-top: 1px solid white;
+}
+.product__content__fillter__navItem {
+  padding: 0 18px;
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+  color: #ffffff;
+  min-height: 57px;
+}
+.product__content__fillter__sort {
+  border-left: 1px solid rgb(191, 191, 191);
+}
+.product__content__fillter__btn {
+  border-right: 1px solid rgb(191, 191, 191);
+}
+.product__content__fillter__dropdown {
+  background: #000;
+  border: 1px solid #ffffff;
+  padding: 10px 15px;
+}
+.product__content__fillter__dropdown .uk-nav > li > a {
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+}
+
+.productDetail__section {
+  padding-top: 0;
+}
+@media (min-width: 960px) {
+  .productDetail__section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+.productDetail__boxSpace {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+@media (min-width: 960px) {
+  .productDetail__boxSpace {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.productDetail__thumbnav img {
+  aspect-ratio: 1;
+  width: 60px;
+}
+@media (min-width: 960px) {
+  .productDetail__thumbnav img {
+    width: 75px;
+  }
+}
+@media (min-width: 960px) {
+  .productDetail__thumbnav > li:nth-child(n+2) {
+    padding-top: 0;
+  }
+}
+.productDetail__thumbnav > li.uk-margin-small-top {
+  margin-top: 20px !important;
+}
+@media (min-width: 960px) {
+  .productDetail__thumbnav > li.uk-active > a:before {
+    opacity: 1;
+  }
+}
+.productDetail__thumbnav > li > a {
+  position: relative;
+}
+.productDetail__thumbnav > li > a:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 2px;
+  height: 30px;
+  max-height: 90%;
+  margin: 0;
+  background: rgb(140, 140, 140);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: opacity 0.2s;
+}
+.productDetail__breadcrumb > * > * {
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+  color: #000 !important;
+}
+  .productDetail__breadcrumb > *:nth-child(n+2):before {
+    margin: 0 10px 0 calc(10px - 4px) !important;
+  }
+.productDetail__contentLeft__radio {
+  display: none;
+}
+.productDetail__contentLeft__accordion__li {
+  border-top: 1px solid rgb(191, 191, 191);
+  padding-top: 16px;
+}
+.productDetail__contentLeft__accordion__li:nth-child(n+2) {
+  margin-top: 16px;
+}
+.productDetail__contentLeft__accordion__title {
+  -webkit-font-smoothing: subpixel-antialiased;
+  letter-spacing: 2px;
+  color: #333;
+  text-transform: uppercase;
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+  font-weight: 600;
+}
+.productDetail__contentLeft__accordion__content {
+  color: rgb(33, 33, 33);
+}
+.productDetail__contentLeft__boxSale {
+  background: #fffbee;
+  border: 1px solid rgba(235, 227, 203, 0.5);
+  color: #363636;
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+}
+.productDetail__contentLeft__btn--addCart {
+  color: #ffffff;
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+  letter-spacing: 2px;
+}
+.productDetail__contentLeft__btn--buy {
+  background: #3c0def;
+  color: #ffffff;
+  letter-spacing: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+.productDetail__contentLeft__btn--find {
+  text-transform: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(26, 26, 26);
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+}
+.productDetail__contentLeft__btn--find:before {
+  content: "";
+  width: 14px;
+  height: 10px;
+  display: inline-flex;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 40 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.9055 15.6191C22.6589 15.6183 22.4225 15.5177 22.2481 15.3393C22.0737 15.1609 21.9754 14.9192 21.9746 14.6669V6.47596C21.9746 6.22334 22.0727 5.98106 22.2474 5.80242C22.422 5.62379 22.6589 5.52344 22.9059 5.52344C23.1529 5.52344 23.3897 5.62379 23.5644 5.80242C23.739 5.98106 23.8371 6.22334 23.8371 6.47596V14.6669C23.8364 14.9193 23.738 15.1612 23.5634 15.3396C23.3888 15.518 23.1523 15.6185 22.9055 15.6191V15.6191Z' fill='currentColor'%3E%3C/path%3E%3Cpath d='M15.1771 28C13.9327 28.0402 12.6871 27.9764 11.4528 27.8093C3.63112 26.9048 0 24.1429 0 19.0953V7.19036C0 3.14474 5.12143 0 11.6392 0C16.8998 0 23.2784 1.61897 23.8371 6.14067V6.23603C23.8371 8.62005 20.9971 11.4267 13.0363 11.4267C11.6858 11.4267 4.9844 11.1883 4.9844 7.56964C4.9844 7.28066 5.07764 4.42706 10.757 4.18866C11.0092 4.18717 11.2548 4.27098 11.4556 4.42706C11.5436 4.51344 11.6139 4.61689 11.6625 4.73138C11.711 4.84587 11.7367 4.96909 11.7381 5.09386V9.47469C12.1716 9.51352 12.6068 9.52944 13.0419 9.52237C19.4693 9.52237 21.9343 7.5718 21.981 6.28443C21.6087 3.7133 17.3716 1.90361 11.6456 1.90361C6.33839 1.90361 1.86889 4.33242 1.86889 7.18892C1.86889 9.99845 3.03288 12.9987 11.6922 13.9986H11.7854C11.832 13.9986 16.767 14.8554 38.1822 12.7603C38.3084 12.7483 38.4357 12.7633 38.556 12.8044C38.6762 12.8454 38.7868 12.9116 38.8807 12.9987C38.979 13.0894 39.0585 13.1994 39.1144 13.3222C39.1703 13.4449 39.2016 13.5779 39.2064 13.7132V25.6189C39.2027 25.8543 39.1159 26.0804 38.9619 26.2555C38.8079 26.4305 38.5972 26.5426 38.3687 26.571C25.6523 27.7139 18.8082 28 15.1771 28ZM1.86253 12.2857V19.0953C1.86253 21.9048 3.02652 24.9051 11.6858 25.9049H11.7791C11.9203 25.9526 15.8297 26.6194 37.3382 24.7144V14.7145C17.1329 16.665 12.0122 15.9527 11.4535 15.8574C6.8434 15.3806 3.67774 14.19 1.86253 12.2857ZM6.79749 7.57108C6.84411 8.33325 8.19386 8.90469 9.82331 9.19005V6.09515C7.54194 6.38124 6.89002 7.23804 6.79679 7.57108H6.79749Z' fill='currentColor'%3E%3C/path%3E%3Cpath d='M6.70422 25.9519C6.58077 25.9515 6.46249 25.9011 6.37526 25.8118C6.28803 25.7224 6.23896 25.6014 6.23877 25.4751V19.666C6.23877 19.5398 6.28781 19.4187 6.3751 19.3294C6.46239 19.2401 6.58078 19.1899 6.70422 19.1899C6.82767 19.1899 6.94606 19.2401 7.03335 19.3294C7.12064 19.4187 7.16968 19.5398 7.16968 19.666V25.4751C7.17349 25.5387 7.16407 25.6023 7.14203 25.6619C7.12 25.7215 7.08585 25.7756 7.04186 25.8206C6.99786 25.8657 6.94502 25.9007 6.88682 25.9233C6.82861 25.946 6.76638 25.9557 6.70422 25.9519V25.9519Z' fill='currentColor'%3E%3C/path%3E%3Cpath d='M12.6635 27.0945C12.5401 27.0941 12.4219 27.0438 12.3347 26.9546C12.2475 26.8654 12.1984 26.7446 12.198 26.6184V22.7173C12.198 22.591 12.247 22.4699 12.3343 22.3807C12.4216 22.2914 12.54 22.2412 12.6635 22.2412C12.7869 22.2412 12.9053 22.2914 12.9926 22.3807C13.0799 22.4699 13.1289 22.591 13.1289 22.7173V26.6184C13.1285 26.7446 13.0794 26.8654 12.9922 26.9546C12.905 27.0438 12.7868 27.0941 12.6635 27.0945V27.0945Z' fill='currentColor'%3E%3C/path%3E%3Cpath d='M24.535 26.9041C24.4117 26.9037 24.2935 26.8534 24.2063 26.7642C24.1191 26.675 24.07 26.5541 24.0696 26.428V22.5269C24.0696 22.4006 24.1186 22.2795 24.2059 22.1902C24.2932 22.1009 24.4116 22.0508 24.535 22.0508C24.6585 22.0508 24.7769 22.1009 24.8642 22.1902C24.9515 22.2795 25.0005 22.4006 25.0005 22.5269V26.428C25.0001 26.5541 24.951 26.675 24.8638 26.7642C24.7765 26.8534 24.6584 26.9037 24.535 26.9041V26.9041Z' fill='currentColor'%3E%3C/path%3E%3Cpath d='M18.5758 27.19C18.4525 27.1896 18.3343 27.1394 18.2471 27.0502C18.1599 26.9609 18.1107 26.8401 18.1104 26.7139V20.8565C18.1104 20.7302 18.1594 20.6091 18.2467 20.5198C18.334 20.4305 18.4524 20.3804 18.5758 20.3804C18.6993 20.3804 18.8176 20.4305 18.9049 20.5198C18.9922 20.6091 19.0413 20.7302 19.0413 20.8565V26.6655C19.046 26.7316 19.0375 26.7979 19.0164 26.8606C18.9953 26.9232 18.9619 26.9807 18.9184 27.0298C18.8749 27.0788 18.8221 27.1183 18.7632 27.1459C18.7043 27.1734 18.6405 27.1884 18.5758 27.19Z' fill='currentColor'%3E%3C/path%3E%3Cpath d='M30.4941 26.3332C30.432 26.337 30.3697 26.3273 30.3115 26.3047C30.2533 26.2821 30.2005 26.2471 30.1565 26.202C30.1125 26.1569 30.0783 26.1028 30.0563 26.0432C30.0343 25.9837 30.0248 25.92 30.0287 25.8564V20.0474C30.0287 19.9211 30.0777 19.8 30.165 19.7107C30.2523 19.6214 30.3707 19.5713 30.4941 19.5713C30.6176 19.5713 30.7359 19.6214 30.8232 19.7107C30.9105 19.8 30.9596 19.9211 30.9596 20.0474V25.8564C30.9515 25.9801 30.8999 26.0965 30.8143 26.1841C30.7287 26.2718 30.6149 26.3248 30.4941 26.3332V26.3332Z' fill='currentColor'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-right: 7px;
+}
+.productDetail__contentLeft__btn--connect {
+  color: rgb(51, 51, 51);
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+  letter-spacing: 2px;
+  background: #000;
+}
+.productDetail__contentLeft__btn--connect:hover {
+  color: rgb(134, 134, 134);
+}
+.productDetail__contentLeft__label {
+  border: 1px solid rgb(167, 167, 167);
+  color: rgb(33, 33, 33);
+  padding: 14px 20px;
+  cursor: pointer;
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+}
+.productDetail__contentLeft__radio:checked ~ .productDetail__contentLeft__label {
+  border-color: rgb(0, 0, 0);
+}
+.productDetail__contentLeft__title {
+  font-family: "Montserrat Regular", sans-serif;
+  line-height: 1.2;
+  color: rgb(33, 33, 33) !important;
+}
+.productDetail__contentLeft__price {
+  font-family: "Avenir Next LT Pro Regular", sans-serif;
+}
+.productDetail__contentLeft__price:nth-child(n+2) {
+  margin-left: 10px;
+}
+.productDetail__contentLeft__price--new {
+  color: rgb(33, 33, 33);
+}
+.productDetail__contentLeft__price--old {
+  color: rgb(100, 100, 100);
+}
+@media (min-width: 960px) {
+  .productDetail__widthLeft {
+    width: 480px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

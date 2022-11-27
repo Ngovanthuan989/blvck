@@ -347,8 +347,7 @@ class OrderController extends SiteController
        // giải phóng session
 //       $request->session()->pull('orderItems');
        $orderBanks = OrderBank::get();
-
-       return redirect()->route('cb_order');
+       return redirect()->route('review', ['id' => $orderId]);
 
 //           view('site.order.payment', compact(
 //           'orderId',

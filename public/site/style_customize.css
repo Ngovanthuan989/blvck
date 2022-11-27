@@ -292,7 +292,46 @@ h2.contact__form__heading {
 .fix__botom .uk-navbar-item {
     background: black;
 }
+.product__content__fillter {
+    background: #000;
+    min-height: 57px;
+    border-top: 1px solid white;
+}
 
+.uk-button-default {
+    background-color: transparent;
+    color: #333 !important;
+    border: 1px solid #e5e5e5 !important;
+}
+
+.productDetail__contentLeft__accordion__title {
+    color: #000 !important;
+}
+
+.productDetail__breadcrumb > *:nth-child(n+2):before {
+    color: #333333 !important;
+}
+.uk-open>.uk-accordion-title::before {
+    background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23666%22%20width%3D%2213%22%20height%3D%221%22%20x%3D%220%22%20y%3D%226%22%20%2F%3E%0A%3C%2Fsvg%3E) !important;
+}
+
+.uk-accordion-title::before {
+    content: "";
+    width: 1.4em;
+    height: 1.4em;
+    margin-left: 10px;
+    float: right;
+    background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23666%22%20width%3D%2213%22%20height%3D%221%22%20x%3D%220%22%20y%3D%226%22%20%2F%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23666%22%20width%3D%221%22%20height%3D%2213%22%20x%3D%226%22%20y%3D%220%22%20%2F%3E%0A%3C%2Fsvg%3E) !important;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.uk-grid-small>.uk-grid-margin {
+    margin-top: 40px;
+}
+.home__slideshow__btn {
+    background: #00000069 !important;
+}
 @media (max-width: 768px) {
     .color-background-1.gradient {
         width: 70%;

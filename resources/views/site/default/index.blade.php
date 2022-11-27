@@ -62,14 +62,16 @@
                             <div class="uk-cover-container uk-inline-clip uk-transition-toggle">
                                 <img src="{{ isset($item['image']) ? $item['image'] : '' }}" alt="" uk-cover="">
                                 <img class="uk-transition-scale-up" src="{{ isset($item['anh-2']) ? $item['anh-2'] : $item['image'] }}" alt="" uk-cover="">
-                                <a class="home__product__card__quickadd uk-transition-slide-bottom uk-text-center uk-link-toggle uk-position-bottom uk-overlay uk-overlay-default">
-                                    Quick add
+                                <a href="{{ route('product', ['post_slug' => $item->slug, 'languageCurrent' => $languageCurrent]) }}" class="home__product__card__quickadd uk-transition-slide-bottom uk-text-center uk-link-toggle uk-position-bottom uk-overlay uk-overlay-default">
+                                    View product
                                 </a>
                                 <canvas width="524" height="524"></canvas>
                             </div>
                             <div class="home__product__card__body uk-text-center">
                                 <h3 class="uk-h3 uk-margin-remove home__product__card__title">
-                                    <a href="" class="uk-link-toggle">{{ isset($item['title']) ? $item['title'] : '' }}</a>
+                                    <a href="{{ route('product', ['post_slug' => $item->slug, 'languageCurrent' => $languageCurrent]) }}" class="uk-link-toggle">
+                                        {{ isset($item['title']) ? $item['title'] : '' }}
+                                    </a>
                                 </h3>
                                 <div class="item__4">
                                     <span class="home__product__card__price home__product__card__price--new">
@@ -101,14 +103,14 @@
                                 <div class="uk-cover-container uk-inline-clip uk-transition-toggle">
                                     <img src="{{ isset($item['image']) ? $item['image'] : '' }}" alt="" uk-cover="">
                                     <img class="uk-transition-scale-up" src="{{ isset($item['anh-2']) ? $item['anh-2'] : $item['image'] }}" alt="" uk-cover="">
-                                    <a class="home__product__card__quickadd uk-transition-slide-bottom uk-text-center uk-link-toggle uk-position-bottom uk-overlay uk-overlay-default">
-                                        Quick add
+                                    <a href="{{ route('product', ['post_slug' => $item->slug, 'languageCurrent' => $languageCurrent]) }}" class="home__product__card__quickadd uk-transition-slide-bottom uk-text-center uk-link-toggle uk-position-bottom uk-overlay uk-overlay-default">
+                                        View product
                                     </a>
                                     <canvas width="524" height="524"></canvas>
                                 </div>
                                 <div class="home__product__card__body uk-text-center">
                                     <h3 class="uk-h3 uk-margin-remove home__product__card__title">
-                                        <a href="" class="uk-link-toggle">{{ isset($item['title']) ? $item['title'] : '' }}</a>
+                                        <a href="{{ route('product', ['post_slug' => $item->slug, 'languageCurrent' => $languageCurrent]) }}" class="uk-link-toggle">{{ isset($item['title']) ? $item['title'] : '' }}</a>
                                     </h3>
                                     <div class="item__4">
                                     <span class="home__product__card__price home__product__card__price--new">
@@ -138,14 +140,14 @@
                                 <div class="uk-cover-container uk-inline-clip uk-transition-toggle">
                                     <img src="{{ isset($item['image']) ? $item['image'] : '' }}" alt="" uk-cover="">
                                     <img class="uk-transition-scale-up" src="{{ isset($item['anh-2']) ? $item['anh-2'] : $item['image'] }}" alt="" uk-cover="">
-                                    <a class="home__product__card__quickadd uk-transition-slide-bottom uk-text-center uk-link-toggle uk-position-bottom uk-overlay uk-overlay-default">
-                                        Quick add
+                                    <a href="{{ route('product', ['post_slug' => $item->slug, 'languageCurrent' => $languageCurrent]) }}" class="home__product__card__quickadd uk-transition-slide-bottom uk-text-center uk-link-toggle uk-position-bottom uk-overlay uk-overlay-default">
+                                        View product
                                     </a>
                                     <canvas width="524" height="524"></canvas>
                                 </div>
                                 <div class="home__product__card__body uk-text-center">
                                     <h3 class="uk-h3 uk-margin-remove home__product__card__title">
-                                        <a href="" class="uk-link-toggle">{{ isset($item['title']) ? $item['title'] : '' }}</a>
+                                        <a href="{{ route('product', ['post_slug' => $item->slug, 'languageCurrent' => $languageCurrent]) }}" class="uk-link-toggle">{{ isset($item['title']) ? $item['title'] : '' }}</a>
                                     </h3>
                                     <div class="item__4">
                                     <span class="home__product__card__price home__product__card__price--new">

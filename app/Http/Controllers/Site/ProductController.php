@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends SiteController
 {
     public function index($languageCurrent, $slug_post, Request $request) {
+//        $orderItems = session('orderItems');
+//        dd($orderItems);
         $product = Post::join('products', 'products.post_id','=', 'posts.post_id')
             ->select(
                 'products.price',

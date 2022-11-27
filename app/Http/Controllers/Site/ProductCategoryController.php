@@ -72,6 +72,23 @@ class ProductCategoryController extends SiteController
             $products =  $products->where('posts.slug', 'like', '%'.Ultility::createSlug($word).'%');
         }
 
+        if (!empty($request->input('order_by'))) {
+            switch ($request->input('order_by')){
+                case 'best-sellers';
+                    $products =  $products->orderBy('posts.post_id', 'asc');
+                    break;
+                case 'low-to-high';
+                    $products =  $products->orderBy('products.price', 'asc');
+                    break;
+                case 'high-to-low';
+                    $products =  $products->orderBy('products.price', 'desc');
+                    break;
+                case 'new-arrivals';
+                    $products =  $products->orderBy('posts.post_id', 'desc');
+                    break;
+            }
+        }
+
         $countProduct = $products->count();
         $products = $products->paginate(16);
 

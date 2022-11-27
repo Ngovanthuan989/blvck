@@ -18,10 +18,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <!--CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.12/dist/css/uikit.min.css"/>
+    <link rel="stylesheet" href="{{ asset('/site/assets/uikit-3.15.12/css/uikit.css') }}"/>
     <link rel="stylesheet" href="{{ asset('site/style.css?v='. time())}}">
     <link rel="stylesheet" href="{{ asset('site/style_customize.css?v='. time())}}">
-    <link rel="stylesheet" href="{{ asset('site/scss/pages/_blog.scss?v='. time())}}">
     <!--JS-->
     <script src="https://cdn.jsdelivr.net/npm/@shinsenter/defer.js/dist/defer_plus.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -178,8 +177,8 @@
     }
 
     function addToOrder(e) {
-        var data = $(e).parent().serialize();
-
+        var data = $('#add-to-cart-form').serialize();
+        console.log(data);
         $.ajax({
             type: "POST",
                 url: '{{ route('addToCart', ['languageCurrent' => $languageCurrent]) }}',
@@ -197,6 +196,7 @@
                 // $('.cart-notification-product__name').text(obj.orderItems[0].title);
                 // $('.cart-notification-product__size').text(obj.size);
                 alert('Đặt hàng thành công');
+                location.reload();
             },
             error: function(error) {
                 alert('Lỗi đặt hàng');

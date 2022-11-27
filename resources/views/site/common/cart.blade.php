@@ -9,7 +9,6 @@
         <div class="cart__offcanvas__body uk-flex-auto uk-overflow-auto cart__offcanvas__overflow">
             <div class="cart__offcanvas__body__box1">
                 @if( \App\Entity\Order::countOrder() > 0)
-
                 @foreach(\App\Entity\Order::getOrderItems() as $id => $item)
                         <div class="cart__offcanvas__body__item cart_item_head">
                             <div class="uk-grid-small uk-flex-middle" uk-grid>
