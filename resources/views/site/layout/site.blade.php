@@ -16,6 +16,8 @@
     <meta property="og:image"              content="@yield('meta_image')" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="icon" type="image/x-icon" href="{{ isset($information['icon']) ? $information['icon'] : '' }}">
+
     <!--CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('/site/assets/uikit-3.15.12/css/uikit.css') }}"/>
