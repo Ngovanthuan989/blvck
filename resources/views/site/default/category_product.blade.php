@@ -80,7 +80,7 @@
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
                                     </div>
-                                    {{-- <span class="home__product__card__review__txt">2 reviews</span> --}}
+                                    {{-- <span class="home__product__card__review__txt">2 reviews</span> --}} 
                                 </div>
                                     <span class="home__product__card__price home__product__card__price--new">
                                         {{ isset($item['price']) ? number_format($item['price']) : '' }}
