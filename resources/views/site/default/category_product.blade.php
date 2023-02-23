@@ -67,18 +67,19 @@
                             <div class="item__4">
                                 <div class="home__product__card__review uk-flex uk-flex-middle uk-flex-center">
                                     <div class="uk-position-relative uk-margin-small-right">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <div class="uk-position-center-left uk-text-nowrap uk-overflow-hidden" style="width: 60%">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        {{-- <div class="uk-position-center-left uk-text-nowrap uk-overflow-hidden" style="width: 60%">
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                             <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        </div> --}}
                                     </div>
                                     {{-- <span class="home__product__card__review__txt">2 reviews</span> --}} 
                                 </div>
