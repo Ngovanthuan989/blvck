@@ -75,18 +75,10 @@
                                 <label class="uk-first-column">
                                     <input class="uk-radio productDetail__contentLeft__radio" value="{{ $size }}" type="radio" name="size[]">
                                     <span class="productDetail__contentLeft__label">
-                                        {{ isset($size) ? $size : 'Out of size' }}
+                                        {{ isset($size) ? $size : '' }}
                                     </span>
                                 </label>
                                 @endforeach
-                                @else
-                                    <label class="uk-first-column">
-                                        <input class="uk-radio productDetail__contentLeft__radio" value="Out of size"
-                                               type="radio" name="size[]">
-                                        <span class="productDetail__contentLeft__label">
-                                       Out of size
-                                    </span>
-                                    </label>
                                 @endif
                             </div>
 
