@@ -445,18 +445,39 @@ class ProductController extends AdminController
         return redirect('admin/products');
     }
 
+    public function changeStatusSoldOut($id){
+        $product = Product::where('post_id', $id)->first();
+
+        if ($product->sold_out != 1){
+            $product->sold_out = 1;
+            $product->save();
+        }else{
+            $product->sold_out = 0;
+            $product->save();
+        }
+
+        return response()->json([
+            'code' => 200,
+            'message' => "Đổi trạng thái thành công"
+        ]);
+    }
+
     public function anyDatatables(Request $request) {
         $posts = Post::join('products', 'products.post_id', '=', 'posts.post_id')
             ->select(
                 'products.product_id',
+                'products.sold_out',
                 'posts.*'
             )->where('language', 'vn')
-            ->where('post_type', 'product')->orderBy('posts.post_id', 'desc');
+            ->where('post_type', 'product')
+            ->orderBy('posts.post_id', 'desc');
         
         return Datatables::of($posts)
             ->addColumn('category', function($post) {
                 $categories = Category::leftJoin('category_post', 'category_post.category_id', 'categories.category_id')
-                    ->select('title')->where('category_post.post_id', $post->post_id)->get();
+                    ->select('title')
+                    ->where('category_post.post_id', $post->post_id)
+                    ->get();
                 $categoryPost  = '';
                 foreach ($categories as $category ) {
                     if(empty($categoryPost)) {
@@ -468,6 +489,14 @@ class ProductController extends AdminController
                 
                 return $categoryPost;
             })
+            ->addColumn('sold_out', function($post) {
+                $data = [
+                    'post_id' => $post->post_id,
+                    'sold_out' => $post->sold_out
+                ];
+                return $data;
+            })
+
             ->addColumn('action', function($post) {
                 $string = '<input type="checkbox" class="flat-red" onclick="return visiablePost(this);" value="'.$post->post_id.'" '.( ($post->visiable == 0 || $post->visiable == null ) ? 'checked' : '' ).'/> Hiện ';
                 

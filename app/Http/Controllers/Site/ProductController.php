@@ -31,6 +31,7 @@ class ProductController extends SiteController
                 'products.code',
                 'products.product_id',
                 'products.properties',
+                'products.sold_out',
                 'posts.*'
             )
             ->where('posts.slug', $slug_post)

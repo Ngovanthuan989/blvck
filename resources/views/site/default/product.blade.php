@@ -100,19 +100,23 @@
                             </style>
                         </div>
                         </form>
-
+                        @if($product->sold_out != 1)
                         <div class="uk-child-width-expand uk-grid-10 uk-grid" uk-grid="">
                             <div class="uk-first-column">
                                 <button onclick="return addToOrder(this);" class="productDetail__contentLeft__btn productDetail__contentLeft__btn--addCart uk-button uk-button-large uk-background-secondary uk-width-1-1@l">
                                     ADD TO CART
                                 </button>
                             </div>
-{{--                            <div>--}}
-{{--                                <button class="productDetail__contentLeft__btn productDetail__contentLeft__btn--buy uk-button uk-button-large uk-background-secondary uk-width-1-1@l">--}}
-{{--                                    Buy with--}}
-{{--                                </butt  on>--}}
-{{--                            </div>--}}
                         </div>
+                        @else
+                            <div class="uk-child-width-expand uk-grid-10 uk-grid" uk-grid="">
+                                <div class="uk-first-column">
+                                    <button style="background-color: #626161;" class="productDetail__contentLeft__btn productDetail__contentLeft__btn--addCart uk-button uk-button-large uk-background-secondary uk-width-1-1@l">
+                                       SOLD OUT
+                                    </button>
+                                </div>
+                            </div>
+                        @endif
 {{--                        <div class="uk-margin">--}}
 {{--                            <button class="productDetail__contentLeft__btn productDetail__contentLeft__btn--find uk-button uk-button-large uk-button-default uk-width-1-1@l">Find my size</button>--}}
 {{--                        </div>--}}

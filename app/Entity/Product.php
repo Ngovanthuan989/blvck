@@ -22,7 +22,8 @@ class Product extends Model
         'image_list',
         'properties',
         'buy_together',
-        'buy_after'
+        'buy_after',
+        'sold_out'
     ];
 
     public function post(){
