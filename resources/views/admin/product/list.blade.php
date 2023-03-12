@@ -24,6 +24,7 @@
                             <thead>
                             <tr>
                                 <th width="5%">ID</th>
+                                <th>Còn hàng</th>
                                 <th>Tiêu đề</th>
                                 <th>Đường dẫn</th>
                                 <th>Danh mục</th>
@@ -51,6 +52,15 @@
             ajax: '{!! route('datatable_product') !!}',
             columns: [
                 { data: 'post_id', name: 'post_id' },
+                { data: 'sold_out', name: 'sold_out', orderable: false,
+                    render: function ( data, type, row, meta ) {
+                        if(data.sold_out != 1){
+                            return '<input type="checkbox" class="flat-red" onclick="return soldOut(this);" value="'+ data.post_id +'" checked/>';
+                        }else{
+                            return '<input type="checkbox" class="flat-red" onclick="return soldOut(this);" value="'+ data.post_id +'"/>';
+                        }
+                    },
+                    searchable: false  },
                 { data: 'title', name: 'title' },
                 { data: 'slug', name: 'slug' },
                 { data: 'category', name: 'category' },
@@ -63,5 +73,14 @@
             ]
         });
     });
+    function soldOut(e) {
+        if(confirm('Bạn có muốn đổi trạng thái sản phẩm này?')){
+            $.ajax({
+                url: "sold-out/" +e.value,
+            }).done(function(res) {
+                console.log(res)
+            });
+        }
+    }
 </script>
 @endpush

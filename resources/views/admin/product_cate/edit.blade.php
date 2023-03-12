@@ -82,7 +82,7 @@
 
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">slug {{ $language->language }}</label>
-                                                        <input type="text" class="form-control" name="slug[]" placeholder="đường dẫn tĩnh {{ $language->language }}"
+                                                        <input type="text" class="form-control" name="slug[]" placeholder="đường dẫn tĩnh {{ $language->language }}" disabled
                                                                value="{{ $cate->slug }}" />
                                                     </div>
 

@@ -23,6 +23,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin', 'middleware' => ['admin']]
 
     Route::resource('products', 'ProductController');
     Route::get('products-show', 'ProductController@anyDatatables')->name('datatable_product');
+    Route::get('sold-out/{id}', 'ProductController@changeStatusSoldOut')->name('change_sold_out');
 
     Route::resource('contact', 'ContactController');
     Route::resource('book', 'BookController');
